@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title *ngIf="save" class="title">New Pharmacy</ion-title>
+    <ion-title *ngIf="!save" class="title">Pharmacy</ion-title>
+    <button *ngIf="save" ion-button clear item-end class="create right-btn"  [disabled]="!pharmacyForm.valid" (click)="createPharmaciesData()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="!save" ion-button clear item-end class="create right-btn" [disabled]="!pharmacyForm.valid" (click)="updatePharmaciesData()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+      <img src="assets/icon/white/medical-kit.png" alt="">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="portfolio">
+  <form [formGroup]="pharmacyForm">
+
+    <div class="map">
+      <ion-searchbar #searchbar placeholder="–"></ion-searchbar>
+      <div id="map" #map></div>
+    </div>
+
+
+    <ion-list class="data">
+
+      <ion-item>
+        <ion-label>Name<sup>*</sup></ion-label>
+        <ion-input type="text" placeholder="–" formControlName="name" [(ngModel)]="pharmaciesData.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Phone<sup>*</sup></ion-label>
+        <ion-input type="tel" placeholder="–" formControlName="phone" [(ngModel)]="pharmaciesData.phone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Address</ion-label>
+        <ion-input type="text" placeholder="–" formControlName="address1" [(ngModel)]="pharmaciesData.address1"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>City</ion-label>
+        <ion-input type="text" placeholder="–" formControlName="city" [(ngModel)]="pharmaciesData.city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>State</ion-label>
+        <ion-input type="text" placeholder="–" formControlName="state" [(ngModel)]="pharmaciesData.state"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>ZIP</ion-label>
+        <ion-input type="number" placeholder="–" formControlName="zip" [(ngModel)]="pharmaciesData.zip"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label>Latitude</ion-label>
+        <ion-input type="number" placeholder="–" [(ngModel)]="pharmaciesData.latitude"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Longitude</ion-label>
+        <ion-input type="number" placeholder="–" [(ngModel)]="pharmaciesData.longitude"></ion-input>
+      </ion-item> -->
+
+    </ion-list>
+      <!-- Attach File List -->
+      <ion-list class="attach_list">
+
+        <ion-item-sliding *ngFor="let item of pharmaciesData.attach_file_urls; let i = index;" (click)="onClickItem(item.file_url)">
+
+          <ion-item>
+              <ion-icon name="ios-images-outline" item-start></ion-icon>
+              <p class="file_name">{{item.file_name}}</p>
+              <ion-icon name="ios-arrow-dropright-outline" item-end></ion-icon>
+          </ion-item>
+
+          <ion-item-options side="right">
+            <button ion-button color="danger" (click)="deleteItem(i)">Delete</button>
+          </ion-item-options>
+        </ion-item-sliding>
+
+      </ion-list>
+
+      <input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
+
+      <label for="file" ion-item class="attach">
+
+        <ion-icon name="attach"></ion-icon>
+        <span>Attach Document</span>
+
+      </label>
+
+      <ion-list class="public">
+        <ion-item>
+          <ion-label>Visible on public profile?</ion-label>
+          <ion-toggle [(ngModel)]="pharmaciesData.visible" formControlName="is_private" ></ion-toggle>
+        </ion-item>
+      </ion-list>
+
+  </form>
+  <button *ngIf="!save" ion-button class="delete" outline full large (click)="deleteAlert()">Delete Pharmacy</button>
+
+</ion-content>

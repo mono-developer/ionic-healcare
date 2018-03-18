@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start class="cancel">
+      <button (click)="onCancel()">Cancel</button>
+    </ion-buttons>
+    <p class="spec-title">Edit Reminder</p>
+
+    <div class="tablet-cover">
+      <img src="assets/icon/clock.png" class="tablet">
+    </div>
+
+    <ion-buttons end class="save">
+      <button (click)="onSave()"><ion-icon name="md-checkmark"></ion-icon>&nbsp;Save</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="tablet-preview">
+    <div class="m-icon m-icon-pill" *ngIf="reminderData.form.name == 'Pill'">
+      <div class="icon-left"
+      [ngStyle]="{'-webkit-mask-image': 'url(assets/' + reminderData.form.file + ')', 'background-color': reminderData.color1.color}"
+      ></div>
+      <div class="icon-right"
+      [ngStyle]="{'-webkit-mask-image': 'url(assets/' + reminderData.form.file + ')', 'background-color': reminderData.color2.color}"
+      ></div>
+    </div>
+    <div class="m-icon" *ngIf="reminderData.form.name !== 'Pill'">
+      <div class="m-icon-normal"
+      [ngStyle]="{'-webkit-mask-box-image': 'url(assets/' + reminderData.form.file + ')', 'background-color': reminderData.color1.color}"
+      ></div>
+    </div>
+
+    <h3>{{reminderData.name}}</h3>
+
+    <button ion-button color="secondary" *ngIf="reminderData.take_as_needed" (click)="take()">Take now</button>
+  </div>
+
+  <ion-item [ngClass]="{invalid: !reminderData.quantity}">
+    <ion-label>Current quantity</ion-label>
+    <ion-input type="tel" placeholder="–" [(ngModel)]="reminderData.quantity"></ion-input>
+  </ion-item>
+
+  <ion-item class="reminder-item">
+    <ion-label primary>Refil date</ion-label>
+    <ion-datetime displayFormat="MMM DD, YYYY" min="2017" max="2020-12-31" [(ngModel)]="reminderData.refil_date"></ion-datetime>
+  </ion-item>
+
+  <div class="space"></div>
+
+  <ion-item>
+    <ion-label>Take as needed</ion-label>
+    <ion-toggle [(ngModel)]="reminderData.take_as_needed" (ngModelChange)="onChangeTake($event)"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Interval Schedule</ion-label>
+    <ion-toggle [(ngModel)]="reminderData.scheduled" (ngModelChange)="onChangeSchedule($event)"></ion-toggle>
+  </ion-item>
+
+  <ion-item  class="reminder-item">
+      <ion-label [ngClass]="{disabled: !reminderData.scheduled}">Frequency</ion-label>
+      <ion-multi-picker [(ngModel)] = "reminderData.frequency"
+                        item-content [multiPickerColumns]="frequencyColumns" (ngModelChange)="onChangeFrequency($event)"
+                        [ngClass]="{disabled: !reminderData.scheduled}"
+                        [disabled]="!reminderData.scheduled"></ion-multi-picker>
+  </ion-item>
+
+  <ion-list>
+    <ion-item class="" *ngFor="let reminder of reminderData.reminders; let i = index">
+      <ion-label [ngClass]="{disabled: !reminderData.scheduled}">Reminder</ion-label>
+      <ion-multi-picker *ngIf="schedule==1" [(ngModel)] = "reminderData.reminders[i].value" item-content [multiPickerColumns]="dailyReminderColumns"
+                        [ngClass]="{disabled: !reminderData.scheduled}"
+                        [disabled]="!reminderData.scheduled"></ion-multi-picker>
+      <ion-multi-picker *ngIf="schedule==2" [(ngModel)] = "reminderData.reminders[i].value" item-content [multiPickerColumns]="weeklyReminderColumns"
+                        [ngClass]="{disabled: !reminderData.scheduled}"
+                        [disabled]="!reminderData.scheduled"></ion-multi-picker>
+    </ion-item>
+  </ion-list>
+
+  <ion-item class="reminder-item" *ngIf="reminderData.scheduled">
+    <ion-label primary>Start date</ion-label>
+    <ion-datetime displayFormat="MMM DD, YYYY" min="2017" max="2020-12-31" [(ngModel)]="reminderData.start_date"></ion-datetime>
+  </ion-item>
+
+  <div class="space"></div>
+
+  <ion-item class="remove-item" (click)="remove()">
+    <div class="remove-button">
+      <img src="assets/icon/red/clock.png" alt="">
+      <span>Remove Reminder</span>
+    </div>
+  </ion-item>
+
+  <div class="space"></div>
+
+</ion-content>

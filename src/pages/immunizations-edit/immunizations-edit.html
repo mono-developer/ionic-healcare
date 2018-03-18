@@ -1,0 +1,132 @@
+  <ion-header>
+    <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+      <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+      <ion-title *ngIf="save" class="title">New Immunizations</ion-title>
+      <ion-title *ngIf="!save" class="title">Immunizations</ion-title>
+      <button *ngIf="save && immunizationsData.name && immunizationsData.physician" ion-button clear item-end class="create right-btn" (click)="createImmunizationsData()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+      <button *ngIf="!save && immunizationsData.name && immunizationsData.physician" ion-button clear item-end class="create right-btn" (click)="updateImmunizationsData()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+      <div class="header-title">
+          <img src="assets/icon/white/syringe.png" alt="">
+      </div>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content class="portfolio">
+
+    <ion-list class="data">
+
+      <!-- <ion-item>
+        <ion-label>Name<sup>*</sup></ion-label>
+        <ion-input type="text" placeholder="–" [(ngModel)]="immunizationsData.name"></ion-input>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label>Name<sup>*</sup></ion-label>
+        <ion-select [(ngModel)]="immunizationsData.name" style="color: #515355;">
+          <ion-option value="" selected>Select</ion-option>
+          <ion-option *ngFor="let item of vaccineList" [value]="item.name">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="immunizationsData.name == 'Other'">
+        <ion-label>Other<sup>*</sup></ion-label>
+        <ion-input type="text" placeholder="–" [(ngModel)]="other"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Treating Physician<sup>*</sup></ion-label>
+        <ion-select [(ngModel)]="immunizationsData.physician" style="color: #515355;" (ionChange) ="onSelectChange($event)">
+          <ion-option value="" selected>Select</ion-option>
+          <ion-option *ngFor="let item of physicianData" [value]="item.name">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item (click)="enterNote()">
+        <div style="color: #515355;" item-start>Notes</div>
+        <div class="option-val" item-end>
+          <p *ngIf="immunizationsData.notes == ''"></p>
+          <p *ngIf="immunizationsData.notes !== ''">{{immunizationsData.notes}}</p>
+        </div>
+      </ion-item>
+
+      <div class="note-rgn" *ngIf="selecting.notes">
+        <textarea name="name" rows="4" placeholder="–" [(ngModel)]="note_template"></textarea>
+        <div class="note-buttons">
+          <button ion-button outline small color="light" (click)="noteCancel()">Cancel</button>
+          <button ion-button outline small color="light" (click)="noteSave()">OK</button>
+        </div>
+      </div>
+
+      <ion-item *ngIf="save">
+        <ion-label>Date of Dose 1</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" max="2050-10-31"  min="2017-10-31" [(ngModel)]="imzDateDose"></ion-datetime>
+      </ion-item>
+
+      <div *ngIf="edit" class="dose">
+        <ion-item-sliding *ngFor="let item of doseData;  let i = index;" >
+
+          <ion-item>
+            <ion-label color="primary">Date of Dose {{i + 1}}</ion-label>
+            <ion-input placeholder="–" [(ngModel)]="item.does_date" [readonly]="isReadonly()"></ion-input>
+          </ion-item>
+
+          <ion-item-options side="right" class="slide_option">
+            <button ion-button class="edit" (click)="editDose(item)">Edit</button>
+            <button ion-button class="delete" (click)="deleteDose(item.id)">Delete</button>
+          </ion-item-options>
+        </ion-item-sliding>
+
+            <ion-item *ngIf="addInputBox">
+              <ion-label color="primary">New Dose of Date</ion-label>
+              <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" max="2050-10-31" min="2017-10-31" [(ngModel)]="imzDateDose"></ion-datetime>
+            </ion-item>
+
+            <button ion-button full class="slide_btn" (click)="addInput()" *ngIf="!addInputBox">
+              + Add Dose
+            </button>
+
+            <button ion-button full class="slide_btn" *ngIf="addInputBox" (click)="saveDoseData(immunizationsData.id)">
+              Save
+            </button>
+
+      </div>
+
+    </ion-list>
+
+    <!-- Attach File List -->
+    <ion-list class="attach_list">
+
+      <ion-item-sliding *ngFor="let item of immunizationsData.attach_file_urls; let i = index;" (click)="onClickItem(item.file_url)">
+
+        <ion-item>
+            <ion-icon name="ios-images-outline" item-start></ion-icon>
+            <p class="file_name">{{item.file_name}}</p>
+            <ion-icon name="ios-arrow-dropright-outline" item-end></ion-icon>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteItem(i)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
+
+    <label for="file" ion-item class="attach">
+
+      <ion-icon name="attach"></ion-icon>
+      <span>Attach Document</span>
+
+    </label>
+
+    <ion-list class="public">
+      <ion-item>
+        <ion-label>Visible on public profile?</ion-label>
+        <ion-toggle [(ngModel)]="immunizationsData.visible"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+      <button *ngIf="!save" ion-button color="light" outline full large style="color: red" (click)="deleteAlert()">Delete Immunization</button>
+
+  </ion-content>

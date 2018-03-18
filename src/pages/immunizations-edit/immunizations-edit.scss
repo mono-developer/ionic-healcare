@@ -1,0 +1,174 @@
+page-immunizations-edit {
+
+  .bg-clr{
+      background-color: #e8e8e8;
+  }
+
+  .portfolio{
+
+    background-color: #e8e8e8;
+
+    .data{
+      margin-bottom: 0;
+      .item-block{
+        height: 55px;
+        .label{
+          color: #404040;
+          span{
+            font-size: 12px;
+            color: #818181;
+          }
+          sup{
+            color: red;
+            font-weight: 900;
+          }
+        }
+        input{
+          text-align: right;
+          font-size: 20px;
+          color: $font-color;
+        }
+        textarea.text-input{
+          text-align: right;
+          font-size: 20px;
+          color: $font-color;
+        }
+      }
+      .dose{
+        .slide_option{
+          .delete{
+            background: red;
+          }
+          .edit{
+            background: #009fcb;
+          }
+
+        }
+        button{
+          background-color: $start-green;
+          font-size: 18px;
+        }
+
+      }
+      .item-datetime{
+        color: $font-color;
+        font-size: 18px;
+        button{
+          background-color: transparent;
+        }
+      }
+    }
+    .select{
+      button{
+        background-color: transparent;
+      }
+    }
+
+    .option-val {
+      white-space: nowrap;
+      overflow: hidden;
+      color: $font-color;
+      p {
+        font-size: 20px;
+        color: $font-color;
+      }
+    }
+    .note-rgn {
+          height: 150px;
+      padding: 12px;
+      border-bottom: 0.55px solid #c8c7cc;
+      background: gray;
+      textarea {
+        width: 100%;
+        border: 1px solid #c8c7cc;
+        border-radius: 9px;
+        font-size: 16px;
+        padding: 6px;
+      }
+
+      .note-buttons {
+        width: 100%;
+        text-align: right;
+        button {
+          width: 72px;
+          border-color: #f4f4f4;
+          color: #f4f4f4;
+          background-color: transparent;
+        }
+      }
+    }
+
+    button{
+      background-color: #fff;
+      border-color: lightgray;
+      margin-bottom: 30px;
+    }
+    .add-dose{
+      background-color: transparent;
+      margin-bottom: 10px;
+      color: #00d59c;
+      font-size: 20px;
+    }
+  }
+
+  .attach_list{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    .file_name{
+      color: $font-color;
+      font-size: 18px;
+    }
+  }
+
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .attach{
+    padding: 0;
+    text-align: center;
+    border-top: 1px solid #c8c7cc;
+    height: 55px;
+    color: $start-green;
+    font-size: 18px;
+    .icon{
+      line-height: 43px;
+      font-size: 25px;
+      position: absolute;
+      margin-left: -20px;
+      margin-top: -10px;
+      font-size: 30px;
+    }
+    .label{
+      margin-left: 20px;
+    }
+  }
+
+  .public{
+    margin-top: 30px;
+    border-top: 1px solid #c8c7cc;
+    .item-block{
+      height: 55px;
+      .label{
+        color: $font-color;
+        font-size: 18px;
+      }
+      .toggle{
+        button{
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .delete{
+    background-color: #fff;
+    color: red;
+    border-color: #c8c7cc;
+  }
+
+}

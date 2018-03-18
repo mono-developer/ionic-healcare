@@ -1,0 +1,44 @@
+<ion-header hideBackButton>
+  <ion-navbar hideBackButton>
+    <button ion-button clear item-end class="back_btn" left (click)="dismiss()"><ion-icon name="arrow-back"></ion-icon></button>
+    <ion-title>
+      Sign Up
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list class="signup">
+
+    <ion-item class="form">
+      <ion-label stacked class="title">Email</ion-label>
+      <ion-input type="text" class="mail" placeholder="" [(ngModel)]="user.email" (ionChange)="validEmailAddress()"></ion-input>
+      <ion-label *ngIf="validEmail" class="check"> <ion-icon name="md-checkmark"></ion-icon></ion-label>
+    </ion-item>
+
+    <ion-item class="form">
+      <ion-label stacked class="title">Password</ion-label>
+      <ion-input type="password" class="mail" placeholder="" [(ngModel)]="user.password"></ion-input>
+      <ion-label *ngIf="user.password == user.confirm_pw && user.password != '' && user.confirm_pw != ''" class="check"> <ion-icon name="md-checkmark"></ion-icon></ion-label>
+      <ion-label *ngIf="user.password != user.confirm_pw" class="pw-check"> <ion-icon name="md-close"></ion-icon></ion-label>
+    </ion-item>
+
+    <ion-item class="form">
+      <ion-label stacked class="title">Confirm Password</ion-label>
+      <ion-input type="password" class="mail" placeholder="" [(ngModel)]="user.confirm_pw"></ion-input>
+      <ion-label *ngIf="user.password == user.confirm_pw && user.password != '' && user.confirm_pw != ''" class="check"> <ion-icon name="md-checkmark"></ion-icon></ion-label>
+      <ion-label *ngIf="user.password != user.confirm_pw" class="pw-check"> <ion-icon name="md-close"></ion-icon></ion-label>
+    </ion-item>
+    <h4 class="agree_group">Have a Group Code?</h4>
+    <ion-item class="form">
+      <ion-label stacked class="title">Enter Group Code <span style="color: #989ca0;">(optional)</span></ion-label>
+      <ion-input type="text" class="mail" placeholder="" [(ngModel)]="user.group_code"></ion-input>
+      <ion-label *ngIf="user.group_code.length > 5" class="check"> <ion-icon name="md-checkmark"></ion-icon></ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button full large class="login" (click)="doSignup()">Submit</button>
+  <p class="nav">By tapping Sign Up, I agree to MyID's <span (click)="termsPage()">Terms of Service</span> and <span (click)="privacyPage()">Privacy Statement</span>.</p>
+
+</ion-content>

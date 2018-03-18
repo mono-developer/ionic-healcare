@@ -1,0 +1,63 @@
+page-explain-slide {
+
+  .close{
+    position: absolute;
+    font-size: 30px;
+    color: gray;
+    z-index: 9999;
+  }
+  .slide-box{
+    img{
+      width: 73%;
+      margin: 0 auto;
+      margin-top: -60px;
+    }
+    h2{
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+      font-size: 24px;
+      margin-top: 30px;
+    }
+    p{
+      padding: 0 10px;
+      font-size: 20px;
+      color: #989ca0;
+    }
+  }
+  .profile{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -70px;
+    img{
+      width: auto;
+      max-width: 110px;
+      height: auto;
+      max-height: 110px;
+      border-radius: 50%;
+    }
+    p{
+      margin: 0px 0 40px 0;
+      font-weight: 600;
+    }
+    .find_out{
+      background-color: #15ce87;
+      border-radius: 5px;
+    }
+  }
+
+
+  .description{
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    text-align: left;
+    span{
+      color: #1d81fc;
+    }
+  }
+  .swiper-pagination{
+    bottom: 21vh !important;
+  }
+}

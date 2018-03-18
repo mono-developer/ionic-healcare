@@ -1,0 +1,21 @@
+<div class="nav-bar">
+  <div class="dd">
+    <img src="assets/icon/white/cloud.png" alt="">
+    <span>Schedule</span>
+  </div>
+  <div class="feature">
+    <button ion-button clear (click)="dismiss()"><ion-icon name="ios-arrow-back"></ion-icon>Back</button>
+
+  </div>
+</div>
+
+<ion-content  class="content-box">
+  <ion-list>
+    <ion-item class="date" *ngFor="let item of items">
+      <ion-icon item-end>{{item.value}}</ion-icon>
+        {{item.date}}
+      <ion-icon name="ios-arrow-down" item-end></ion-icon>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

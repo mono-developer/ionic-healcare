@@ -1,0 +1,153 @@
+
+@import '../../styles/global.scss';
+page-medications-edit {
+
+  ion-content {
+    background-color: #E6E6E6 !important;
+    .scroll-content {
+      padding-top: 120px !important;
+    }
+  }
+
+  ion-item {
+    border-bottom: 0.55px solid #c8c7cc !important;
+    .item-inner {
+      padding: 8px 8px 12px 0;
+      border-bottom: 0 !important;
+    }
+
+    ion-input input{
+      text-align: right;
+      color: $font-color;
+    }
+    .label{
+      color: $font-color;
+    }
+
+    .option-val {
+      white-space: nowrap;
+      overflow: hidden;
+      color: $font-color;
+      p {
+        font-size: 1.7rem !important;
+      }
+    }
+  }
+
+  .form-rgn {
+    width: 100vw;
+    padding: 2.5vw;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: gray;
+    .form-item {
+      width: 19vw;
+      padding: 3vw;
+      .form-img {
+        width: 100%;
+        height: 13vw;
+        background-color: white;
+        -webkit-mask-size: 100%;
+        -webkit-mask-position-y: center;
+        -webkit-mask-position-x: left;
+        -webkit-mask-repeat: no-repeat;
+      }
+      .form-name {
+        text-align: center;
+        width: 100%;
+        color: white;
+        font-size: 12px;
+        padding-top: 4px;
+      }
+    }
+  }
+
+  .color-rgn {
+    width: 100vw;
+    padding: 2.5vw;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: gray;
+    .color-item {
+      width: 19vw;
+      padding: 3vw;
+      .color-img {
+        width: 100%;
+        height: 13vw;
+        border-radius: 50%;
+        box-shadow: black 1px 1px 4px;
+      }
+      .color-name {
+        text-align: center;
+        width: 100%;
+        color: white;
+        font-size: 12px;
+        padding-top: 4px;
+      }
+    }
+  }
+
+  .note-rgn {
+    height: 150px;
+    padding: 12px;
+    border-bottom: 0.55px solid #c8c7cc;
+    background: gray;
+    textarea {
+      width: 100%;
+      border: 1px solid #c8c7cc;
+      border-radius: 9px;
+      font-size: 16px;
+      padding: 6px;
+    }
+
+    .note-buttons {
+      width: 100%;
+      text-align: right;
+      button {
+        width: 72px;
+      }
+    }
+  }
+
+  .space {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+    border-bottom: 0.55px solid #c8c7cc !important;
+  }
+
+  .m-icon {
+    width: 40px;
+    height:40px;
+    margin: 0 auto;
+    .m-icon-normal {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+    }
+  }
+
+  .m-icon-pill {
+    display: inline-flex;
+    .icon-left {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: left;
+      -webkit-mask-repeat: no-repeat;
+    }
+    .icon-right {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: right;
+      -webkit-mask-repeat: no-repeat;
+    }
+  }
+
+}

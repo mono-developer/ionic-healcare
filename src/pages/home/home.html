@@ -1,0 +1,51 @@
+
+
+<ion-content padding class="bg-clr">
+  <img src="assets/icon/main_logo.png" alt="" class="logo">
+
+  <div class="inbox box">
+    <img src="assets/icon/blue/continued-circles-vertical.png" alt="" class="icon" (click)="goInboxPage()">
+    <h2>My Inbox</h2>
+    <p>You've got <b>1</b> unread messages.</p>
+    <div class="section"></div>
+    <button ion-button color="secondary" clear small full (click)="goInboxPage()">Read Messages</button>
+  </div>
+
+  <div class="schedule box">
+    <img src="assets/icon/blue/continued-circles-vertical.png" alt="" class="icon" (click)="goSchedulePage()">
+    <h2><i class="fa fa-camera" aria-hidden="true"></i>My Schedule</h2>
+    <ion-item class="timing" *ngFor="let item of reminders">
+        <ion-row class="title">
+            <ion-col col-6><div class="row1">Today</div></ion-col>
+            <ion-col col-6><div class="row1">Medication</div></ion-col>
+        </ion-row>
+        <ion-row class="des">
+            <ion-col col-6><div class="row2">{{item.reminder.time}}:{{item.reminder.minute}} {{item.reminder.ap}}</div></ion-col>
+            <ion-col col-6><div class="row2">{{item.name}}</div></ion-col>
+        </ion-row>
+    </ion-item>
+    <!-- <button ion-button color="secondary" clear small full>View More</button> -->
+  </div>
+<!--
+  <div class="inbox box">
+    <img src="assets/icon/blue/continued-circles-vertical.png" alt="" class="icon">
+    <h2>My Community</h2>
+    <div class="com">
+      <img src="assets/icon/badge.png" alt="">
+      <p class="middle-name">TD</p>
+      <div class="notification">
+        <img src="assets/icon/noti_icon.png" alt="">
+        <p>3</p>
+      </div>
+      <p>T1 Diabeties</p>
+    </div>
+    <div class="com">
+      <img src="assets/icon/badge.png" alt="">
+      <p class="middle-name">ED</p>
+      <p>Ehios Danios</p>
+    </div>
+
+    <button ion-button color="secondary" clear small full>See Communities</button>
+  </div> -->
+
+</ion-content>

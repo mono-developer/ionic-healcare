@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Choose A Destination
+    </ion-title>
+    <button ion-button full clear class="cancel" (click)="dismiss()">Cancel</button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="list-box">
+    <ion-list >
+
+        <!-- <ion-item *ngFor="let item of documents" (click)="goNextPage($event, item.slug)">
+          <ion-icon name="ios-folder-open-outline" item-start *ngIf="item.item_type == 'folder'"></ion-icon>
+          <ion-icon name="leaf" item-start *ngIf="item.item_type != 'folder'"></ion-icon>
+            {{item.name}}
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item *ngFor="let item of documents" (click)="goNextPage($event, item.slug)">
+          <ion-icon name="ios-folder-open-outline" item-start *ngIf="item.item_type == 'folder'"></ion-icon>
+          <ion-icon name="leaf" item-start *ngIf="item.item_type != 'folder'"></ion-icon>
+            {{item.name}}
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item> -->
+
+
+      <div *ngFor="let item of documents" (click)="goNextPage($event, item)" class="item-div" >
+        <div *ngIf="item.item_type == 'folder'" class="item">
+            <ion-icon name="ios-folder-open-outline" item-start></ion-icon>
+              <span>{{item.name}}</span>
+            <ion-icon name="ios-arrow-forward" item-end class="end-icon"></ion-icon>
+        </div>
+      </div>
+
+      <div *ngFor="let item of documents" class="item-div" >
+        <div *ngIf="item.item_type != 'folder'" class="item">
+            <ion-icon name="ios-document-outline" item-start></ion-icon>
+            <span maxlength="20">{{item.file_name}} </span>
+            <ion-icon name="ios-arrow-forward" item-end class="end-icon"></ion-icon>
+        </div>
+      </div>
+
+    </ion-list>
+  </div>
+
+  <div class="feature-btn">
+    <button ion-button outline style="float: left;" (click)="createFolderName()">Create Folder</button>
+    <button ion-button  outline style="float: right;" (click)="moveDocument()">Move</button>
+  </div>
+</ion-content>

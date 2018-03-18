@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" >
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title class="title">
+      Manage Linked Products
+    </ion-title>
+    <button ion-button clear item-end class="back_btn create right-btn" style="right: 0px;" (click)="updateLikedData()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+        <img src="assets/icon/white/link.png" alt="">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="portfolio">
+  <ion-list class="data">
+
+    <ion-item>
+      <ion-label>Label</ion-label>
+      <ion-input type="text" placeholder="–" [(ngModel)]="linkedData.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>PIN # </ion-label>
+      <ion-input type="text" [(ngModel)]="linkedData.id" [readonly]="isReadonly()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ID #</ion-label>
+      <ion-input type="text" [(ngModel)]="linkedData.pin" [readonly]="isReadonly()"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button color="light" outline full large style="color: red" (click)="deleteAlert()">Delete Linked Product</button>
+</ion-content>

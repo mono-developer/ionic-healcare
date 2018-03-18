@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-clr">
+  <ion-list style="margin-top: 50px;">
+
+    <!-- <ion-item class="list-item" *ngFor="let item of settings" (click)="onCategoryClick($event, item.page)">
+      <img src="assets/icon/gray/{{item.icon}}.png" item-start class="start_icon">
+        {{item.name}}
+      <ion-icon name="ios-arrow-forward-outline" item-end style="color: #569ef7;"></ion-icon>
+    </ion-item> -->
+
+    <ion-item class="list-item" *ngFor="let item of settings" (click)="onCategoryClick($event, item.page)">
+      <ion-icon name="{{item.icon}}" item-start style="font-size: 35px;"></ion-icon>
+        {{item.name}}
+      <ion-icon name="ios-arrow-forward-outline" item-end style="color: #569ef7;"></ion-icon>
+    </ion-item>
+
+
+
+  </ion-list>
+
+  <ion-item class="toggle-button" (click)="goPasscodePage()">
+    <ion-icon name="ios-finger-print" item-start></ion-icon>
+    <ion-label>Set Passcode</ion-label>
+    <ion-toggle [(ngModel)]="passTrue" (ionChange)="touchChange()"></ion-toggle>
+  </ion-item>
+
+  <p class="explain">Allow your fingerprint to unlock the MyID app</p>
+
+  <button ion-button outline large full class="sign-out" (click)="logOut()">
+    Log out of MyID
+  </button>
+</ion-content>

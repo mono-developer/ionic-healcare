@@ -1,0 +1,34 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon style="color:white;" name="menu"></ion-icon>
+    </button>
+
+    <ion-title class="response-android"><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<div class="nav-bar">
+  <div class="dd">
+    <p>Passcode Setting</p>
+  </div>
+  <div class="feature">
+    <button ion-button clear style="left: 0;" (click)="dismiss()"><ion-icon name="ios-arrow-back"></ion-icon>Back</button>
+  </div>
+</div>
+
+<ion-content class="content-box">
+  <div style="margin-top: 15vh;">
+    <button ion-button full  color="light" class="setting_btn" (click)="setPasscode('set')">
+      <p *ngIf="!passValue" class="title">Turn Passcode On</p>
+      <p *ngIf="passValue" class="title">Turn Passcode Off</p>
+      <ion-icon name="ios-arrow-forward-outline" class="icon"></ion-icon>
+    </button>
+    <button [disabled]="isDisable" ion-button full  color="light" class="setting_btn" (click)="setPasscode('change')">
+      <p class="title">Change Passcode</p>
+      <ion-icon name="ios-arrow-forward-outline" style="margin-right: -5px;"></ion-icon>
+    </button>
+</div>
+
+  <p class="details">Your phone will be signed out from MyID after 10 failed passcode atempts</p>
+</ion-content>

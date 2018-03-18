@@ -1,0 +1,170 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="onCancel()">Cancel</button>
+    <ion-title *ngIf="save" class="title">New Medication</ion-title>
+    <ion-title *ngIf="!save" class="title">Edit Medication</ion-title>
+
+    <div class="tablet-cover" *ngIf="loaded">
+      <div class="m-icon m-icon-pill" *ngIf="form.name == 'pill'">
+        <div class="icon-left" [ngStyle]="{'-webkit-mask-image': 'url(assets/' + form.file + ')', 'background-color': color1.color}"></div>
+        <div class="icon-right" [ngStyle]="{'-webkit-mask-image': 'url(assets/' + form.file + ')', 'background-color': color2.color}"></div>
+      </div>
+      <div class="m-icon" *ngIf="form.name !== 'pill'">
+        <div class="m-icon-normal" [ngStyle]="{'-webkit-mask-box-image': 'url(assets/' + form.file + ')', 'background-color': color1.color}"></div>
+      </div>
+    </div>
+
+    <button ion-button clear item-end class="create right-btn" *ngIf="save" (click)="createMedicationsData()" [disabled]="!addMedicationForm.valid">
+      <ion-icon name="md-checkmark"></ion-icon>&nbsp;Save</button>
+    <button ion-button clear item-end class="create right-btn" *ngIf="!save" [disabled]="!addMedicationForm.valid" (click)="updateMedicationsData()">
+      <ion-icon name="md-checkmark"></ion-icon>&nbsp;Save</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="loaded">
+
+  <ion-list class="data">
+    <form [formGroup]="addMedicationForm">
+      <!-- <ion-item>
+        <ion-label>Name
+          <sup style="color: red; font-weight: 900">*</sup>
+        </ion-label> -->
+
+
+        <!-- <ion-input type="text" formControlName="name" placeholder="–" [(ngModel)]="medicationData.name"></ion-input> -->
+      <!-- </ion-item>
+      <ion-auto-complete formControlName="name" [dataProvider]="completeTestService" [options]="{ placeholder : 'Name of Medicine' }"
+        #searchbar></ion-auto-complete> -->
+
+        <ion-grid class="name-grid">
+          <ion-row class="name-row">
+            <ion-col col-3>
+              <ion-label>Name
+                <sup>*</sup>
+              </ion-label>
+            </ion-col >
+            <ion-col col-9>
+              <ion-auto-complete [dataProvider]="completeTestService" formControlName="name" [options]="{ placeholder : '–' }"
+                #searchbar></ion-auto-complete>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+      <ion-item (click)="selectForm()">
+        <div style="color: #515355;" item-start>Form</div>
+        <div class="option-val" item-end>{{form.name}}</div>
+      </ion-item>
+
+      <!-- Form selection region -->
+
+      <div class="form-rgn" *ngIf="selecting.form">
+
+        <div class="form-item" *ngFor="let form of default_forms" (click)="setForm(form)">
+          <div class="form-img" [ngStyle]="{'-webkit-mask-image': 'url(assets/' + form.file + ')'}"></div>
+          <div class="form-name">{{form.name}}</div>
+        </div>
+      </div>
+
+      <!-- -->
+
+      <ion-item (click)="selectColor1()">
+        <div style="color: #515355;" item-start>
+          <span *ngIf="form.name !== 'pill'" style="color: #515355;">Color</span>
+          <span *ngIf="form.name == 'pill'" style="color: #515355;">Left Color</span>
+        </div>
+        <div class="option-val" item-end>{{color1.name}}</div>
+      </ion-item>
+
+      <!-- Color1 selection region -->
+
+      <div class="color-rgn" *ngIf="selecting.color1">
+        <div class="color-item" *ngFor="let color of default_colors" (click)="setColor1(color)">
+          <div class="color-img" [ngStyle]="{'background-color': color.color }"></div>
+          <div class="color-name">{{color.name}}</div>
+        </div>
+      </div>
+
+      <!--     -->
+
+      <ion-item (click)="selectColor2()" *ngIf="form.name == 'pill'">
+        <div class="" item-start style="color: #515355;">Right Color</div>
+        <div class="option-val" item-end>{{color2.name}}</div>
+      </ion-item>
+
+      <!-- Color1 selection region -->
+
+      <div class="color-rgn" *ngIf="selecting.color2 && form.name == 'pill'">
+        <div class="color-item" *ngFor="let color of default_colors" (click)="setColor2(color)">
+          <div class="color-img" [ngStyle]="{'background-color': color.color }"></div>
+          <div class="color-name">{{color.name}}</div>
+        </div>
+      </div>
+    </form>
+
+      <!-- -->
+
+      <ion-item>
+        <ion-label>Dosage</ion-label>
+        <ion-input type="number" placeholder="–" [(ngModel)]="medicationData.dosage"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Frequency</ion-label>
+          <ion-multi-picker [(ngModel)]="medicationData.frequency" placeholder="–" separator=" times " item-content [multiPickerColumns]="frequencyColumns"></ion-multi-picker>
+      </ion-item>
+
+    <ion-item (click)="enterNote()">
+      <div style="color: #515355;" item-start>Notes</div>
+      <div class="option-val" item-end>
+        <p class="p1" *ngIf="medicationData.notes == ''">Add additional notes</p>
+        <p class="p2" *ngIf="medicationData.notes !== ''">{{medicationData.notes}}</p>
+      </div>
+    </ion-item>
+
+    <div class="note-rgn" *ngIf="selecting.notes">
+      <textarea name="name" rows="4" placeholder="–" [(ngModel)]="note_template"></textarea>
+      <div class="note-buttons">
+        <button ion-button outline small color="light" (click)="noteCancel()">Cancel</button>
+        <button ion-button outline small color="light" (click)="noteSave()">OK</button>
+      </div>
+    </div>
+
+  </ion-list>
+
+  <!-- Attach File List -->
+  <ion-list class="attach_list">
+
+    <ion-item-sliding *ngFor="let item of medicationData.attach_file_urls; let i = index;" (click)="onClickItem(item.file_url)">
+
+      <ion-item>
+          <ion-icon name="ios-images-outline" item-start></ion-icon>
+          <p class="file_name">{{item.file_name}}</p>
+          <ion-icon name="ios-arrow-dropright-outline" item-end></ion-icon>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deleteItem(i)">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
+
+  <label for="file" ion-item class="attach">
+    <ion-icon name="attach"></ion-icon>
+    <span>Attach Document</span>
+  </label>
+
+  <ion-list class="public">
+    <ion-item>
+      <ion-label>Visible on public profile?</ion-label>
+      <ion-toggle [(ngModel)]="medicationData.visible"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+
+  <button *ngIf="!save" ion-button class="delete" outline full large (click)="deleteAlert()">Delete Medication</button>
+
+</ion-content>

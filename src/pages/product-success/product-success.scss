@@ -1,0 +1,50 @@
+page-product-success {
+
+  .success{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .check{
+      top: 25vh;
+      position: absolute;
+      width: 100%;
+      img{
+        width: 130px;
+        display: block;
+        margin:  0 auto;
+      }
+      h1{
+        text-align: center;
+      }
+
+      .label-box{
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background-color: #dfe5eb;;
+        .item-inner{
+          border-bottom: none;
+          input{
+            text-align: center;
+            color: #585858;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .done{
+      position: absolute;
+      width: 80%;
+      left: 10%;
+      bottom: 40px;
+      background: #fff;
+      display: block;
+      background-color: $start-green;
+      border-radius: 5px;
+      color: #fff;
+    }
+  }
+
+}

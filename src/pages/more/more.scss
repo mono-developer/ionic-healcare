@@ -1,0 +1,73 @@
+page-more {
+
+  .toolbar{
+    height: 70px;
+    .toolbar-background{
+      background: $start-blue; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+      background: linear-gradient($start-blue, $end-blue);
+    }
+
+    .toolbar-content{
+      ion-title.title{
+        padding:20px !important;
+
+        .toolbar-title{
+          color: #fff;
+          font-size: 25px;
+          font-weight: 500;
+        }
+      }
+    }
+
+  }
+
+  .bg-clr{
+      background-color: #eff2f4;
+  }
+
+  .item-block:first-child
+  {
+      border-top: 0.55px solid #c8c7cc !important;
+  }
+  .list-item{
+    height: 60px;
+    .start_icon{
+      width: 30px;
+    }
+    .second_icon{
+      color: #0093ca;
+    }
+    .label{
+      font-size: 18px;
+      color: $font-color;
+    }
+    .start_icon{
+      width: 25px;
+      margin-left: 8px;
+    }
+  }
+  .setting{
+    background-color: white;
+    border: 1px solid #c8c7cc;
+    .left{
+      position: absolute;
+      left: 16px;
+      font-size: 40px;
+      color: #555658;
+
+    }
+    p{
+      width: calc(100% - 100px);
+      text-align: left;
+      color: #070707;
+    }
+    .right{
+      position: absolute;
+      right: 20px;
+    }
+  }
+
+}

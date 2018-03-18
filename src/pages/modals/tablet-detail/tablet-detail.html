@@ -1,0 +1,14 @@
+<ion-content class="main-view" padding>
+  <div class="data-cover">
+    <img src="{{tabletData.icon}}">
+    <p class="name">{{tabletData.name}}</p>
+    <p class="remain">{{tabletData.remain}} Remaining</p>
+  </div>
+  <div class="modal-buttons">
+    <button ion-button color="secondary" full class="take" (click)="dismiss()">Take</button>
+    <div class="confirm-buttons">
+      <button ion-button full clear class="skip" (click)="onSkip()">Skip</button>
+      <button ion-button full clear class="edit" (click)="onEdit()">Edit</button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,98 @@
+page-signup {
+
+  .toolbar{
+    height: 100px;
+    .toolbar-background{
+      background: $start-blue; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+      background: linear-gradient($start-blue, $end-blue);
+    }
+    .back_btn{
+      color: #fff;
+      margin-top: 20px;
+      padding-left: 20px;
+      font-size: 20px;
+      .icon{
+        font-size: 30px;
+      }
+    }
+    .title{
+      padding:20px;
+      color: #515355;
+      min-height: 100px !important;
+
+      .toolbar-title{
+        text-align: right;
+        color: #f0f5f7;
+        font-size: 35px;
+        font-weight: 500;
+        width: 230px;
+        right: 20px;
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+  }
+
+  .title{
+    font-size: 17px !important;
+    color: #515355;
+  }
+  .form{
+    margin-bottom: 20px;
+    .mail{
+      font-size: 23px;
+      color: #515355;
+    }
+    .check{
+      position: absolute;
+      float: right;
+      right: 0;
+      margin-top: 45px;
+      font-size: 25px;
+      color: #4fff2f;
+    }
+    .pw-check{
+      position: absolute;
+      float: right;
+      right: 0;
+      margin-top: 45px;
+      font-size: 25px;
+      color: #ff3b30;
+    }
+
+  }
+  .agree_group{
+    margin: 30px 0 0 16px;
+    color: #1d81fc;
+  }
+.ios .nav{
+      position: absolute;
+      bottom: 0px;
+      font-size: 17px;
+      color: #989ca0;
+    }
+  .login{
+    background-color: #15ce87;
+    border-radius: 5px;
+  }
+  .nav{
+    margin-top: 30px;
+    color: #989ca0;
+    font-size: 20px;
+    span{
+      color: #1d81fc;
+    }
+  }
+
+.md .nav{
+      margin-top: 40px;
+      font-size: 17px;
+      color: #989ca0;
+    }
+
+
+
+}

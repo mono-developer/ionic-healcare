@@ -1,0 +1,129 @@
+{
+  "name": "MyIDNew",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "4.4.4",
+    "@angular/compiler": "4.4.4",
+    "@angular/compiler-cli": "4.4.4",
+    "@angular/core": "4.4.4",
+    "@angular/forms": "4.4.4",
+    "@angular/http": "4.4.4",
+    "@angular/platform-browser": "4.4.4",
+    "@angular/platform-browser-dynamic": "4.4.4",
+    "@ionic-native/action-sheet": "4.4.2",
+    "@ionic-native/barcode-scanner": "4.4.2",
+    "@ionic-native/camera": "4.4.2",
+    "@ionic-native/core": "4.4.2",
+    "@ionic-native/crop": "4.4.2",
+    "@ionic-native/file": "4.4.2",
+    "@ionic-native/file-transfer": "4.4.2",
+    "@ionic-native/geolocation": "4.4.2",
+    "@ionic-native/in-app-browser": "4.4.2",
+    "@ionic-native/keyboard": "4.4.2",
+    "@ionic-native/local-notifications": "4.4.2",
+    "@ionic-native/native-geocoder": "4.4.2",
+    "@ionic-native/splash-screen": "4.4.2",
+    "@ionic-native/sqlite": "4.4.2",
+    "@ionic-native/status-bar": "4.4.2",
+    "@ionic-native/touch-id": "^4.4.2",
+    "@ionic/storage": "2.0.1",
+    "ajv": "^5.2.2",
+    "angular2-useful-swiper": "^4.0.6",
+    "aws-sdk": "^2.110.0",
+    "cordova-android": "6.3.0",
+    "cordova-ios": "4.5.4",
+    "cordova-plugin-actionsheet": "^2.3.3",
+    "cordova-plugin-add-swift-support": "^1.7.0",
+    "cordova-plugin-app-event": "^1.2.1",
+    "cordova-plugin-camera": "^2.4.1",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-console": "^1.1.0",
+    "cordova-plugin-crop": "^0.4.0",
+    "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-file": "^5.0.0",
+    "cordova-plugin-file-transfer": "^1.7.0",
+    "cordova-plugin-geolocation": "^2.4.3",
+    "cordova-plugin-inappbrowser": "^1.7.2",
+    "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-nativegeocoder": "^2.0.4",
+    "cordova-plugin-splashscreen": "^4.1.0",
+    "cordova-plugin-statusbar": "^2.3.0",
+    "cordova-plugin-swift-support": "^3.1.1",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-sqlite-storage": "^2.1.2",
+    "de.appplant.cordova.plugin.local-notification": "^0.8.5",
+    "font-awesome": "^4.7.0",
+    "hammer": "0.0.5",
+    "ion-multi-picker": "^2.1.1",
+    "ionic-angular": "^3.9.2",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "ionic2-auto-complete": "^1.5.3-beta",
+    "ionicons": "3.0.0",
+    "js-marker-clusterer": "1.0.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "ng-dynamic": "^3.0.2",
+    "parse-google-place": "1.1.0",
+    "phonegap-plugin-barcodescanner": "^7.0.0",
+    "rxjs": "5.4.3",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "0.8.18"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.0.1",
+    "@types/hammerjs": "^2.0.35",
+    "@types/node": "^8.0.47",
+    "ionic": "3.19.0",
+    "typescript": "2.3.4"
+  },
+  "description": "An Ionic project",
+  "config": {
+    "ionic_copy": "./config/copy.config.js",
+    "ionic_sass": "./config/sass.config.js"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-console": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-whitelist": {},
+      "ionic-plugin-keyboard": {},
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-camera": {
+        "CAMERA_USAGE_DESCRIPTION": "${PRODUCT_NAME} Camera Usage",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "${PRODUCT_NAME} PhotoLibrary Usage"
+      },
+      "cordova-plugin-crop": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-inappbrowser": {},
+      "de.appplant.cordova.plugin.local-notification": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": " "
+      },
+      "cordova-plugin-nativegeocoder": {
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
+      },
+      "cordova-plugin-actionsheet": {},
+      "cordova-plugin-ionic-webview": {},
+      "phonegap-plugin-barcodescanner": {
+        "CAMERA_USAGE_DESCRIPTION": "${PRODUCT_NAME} Camera Usage"
+      }
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}

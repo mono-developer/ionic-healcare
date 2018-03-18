@@ -1,0 +1,75 @@
+page-inbox {
+
+  .nav-bar{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    background: $start-blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($start-blue, $end-blue);
+    text-align: center;
+    .dd{
+      display: inline;
+      position: relative;
+      top: 40px;
+      img{
+        position: absolute;
+        width: 40px;
+        float: left;
+      }
+      span{
+        font-size: 30px;
+        color: white;
+        margin-left: 55px;
+        font-weight: 700;
+      }
+    }
+    .feature{
+      top: 0;
+      position: absolute;
+      width: 100%;
+      button{
+        color: white;
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+
+  .content-box{
+    top: 100px;
+  }
+  .blue{
+    background-color: #0093ca;
+    color: #0093ca;
+  }
+  .white{
+    background-color: #fff;
+    color: #fff;
+  }
+  .show{
+    border-radius: 50%;
+    font-size: 10px;
+    min-width: 10px !important;
+    min-height: 10px;
+  }
+
+  .box-title{
+    font-size: 17px;
+    color: #4a4a4a;
+    width: 80%;
+    .ad{
+      border: 1px solid;
+      font-size: 12px;
+      padding: 1px 4px;
+      border-radius: 5px;
+      color: #bababa;
+      margin-left: 4px;
+    }
+  }
+
+
+
+}

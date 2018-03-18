@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title class="title">
+      <img src="assets/image/main_logo.png" alt="" class="logo">
+    </ion-title>
+    <button ion-button clear item-end class="back_btn create right-btn" style="right: 0px;" ><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+        <!-- <img src="assets/icon/white/pill.png" alt=""> -->
+        <div class="tablet-preview" *ngIf="loaded">
+          <div class="m-icon m-icon-pill" *ngIf="reminderData.form.name == 'Pill'">
+            <div class="icon-left"
+            [ngStyle]="{'-webkit-mask-image': 'url(assets/' + reminderData.form.file + ')', 'background-color': reminderData.color1.color}"
+            ></div>
+            <div class="icon-right"
+            [ngStyle]="{'-webkit-mask-image': 'url(assets/' + reminderData.form.file + ')', 'background-color': reminderData.color2.color}"
+            ></div>
+          </div>
+          <div class="m-icon" *ngIf="reminderData.form.name !== 'Pill'">
+            <div class="m-icon-normal"
+            [ngStyle]="{'-webkit-mask-box-image': 'url(assets/' + reminderData.form.file + ')', 'background-color': reminderData.color1.color}"
+            ></div>
+          </div>
+
+          <h3>{{reminderData.name}}</h3>
+        </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-clr">
+  <ion-list class="data">
+
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" placeholder="–"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Form</ion-label>
+      <ion-input type="text" placeholder="–"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Color</ion-label>
+      <ion-input type="text" placeholder="–"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Dose</ion-label>
+      <ion-input type="text" placeholder="–"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Frequency</ion-label>
+      <ion-input type="text" placeholder="–"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Notes</ion-label>
+      <ion-input type="text" placeholder="–"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="feature">
+
+    <ion-item style="height: 55px;">
+      <ion-label>Visible on plublic profile?</ion-label>
+      <ion-toggle [(ngModel)]="visible" checked="true"></ion-toggle>
+    </ion-item>
+
+    <p class="explain">Your Public Profile is what is displayed when a First Responder access your profile.</p>
+
+    <button *ngIf="!save" ion-button outline item-end icon-left full color="secondary" class="edit" (click)="goEditReminderPage()">
+      <i class="fa fa-pencil" style="margin-right: 10px;" aria-hidden="true"></i>Edit Reminder
+    </button>
+
+
+    <p *ngIf="!save">Reminders make it easy to make sure you are taking your medications on time.
+      Manage all reminders in the Reminders tab.</p>
+
+    <button *ngIf="!save" ion-button color="light" outline full large class="delete">Delete Medication</button>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,168 @@
+page-personal-info {
+  // .no-scroll .scroll-content{
+  //   overflow: hidden;
+  // }
+  // .scroll-content {
+  //     -webkit-overflow-scrolling: auto;
+  //   }
+
+  .toolbar{
+    height: 150px;
+  }
+
+  // .profile-nav{
+  //   background: $start-blue;
+  //   /* For browsers that do not support gradients */
+  //   background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+  //   background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+  //   background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+  //   background: linear-gradient($start-blue, $end-blue);
+  //   height: 180px;
+  //   position: fixed;
+  //   width: 100%;
+  //   left: 0;
+  //   top: 0;
+  //   z-index: 1;
+  //   overflow-y: hidden;
+  //   overflow-x: scroll;
+  //   display: block;
+  //   width: 100%;
+
+  //   .header_bar{
+  //     position: absolute;
+  //     width: 100%;
+  //     top: 10px;
+  //     height: 70px;
+  //     height: 70px;
+  //     .title{
+  //       .logo{
+  //         width: 120px;
+  //         padding: 10px;
+  //       }
+  //     }
+  //     button{
+  //       position: absolute;
+  //       color: white;
+  //       z-index: 9;
+  //       top: 0;
+  //     }
+  //     .cancel{
+  //       left: 0
+  //     }
+  //     .save{
+  //       right: 0;
+  //       .icon{
+  //          margin-right: 0px;
+  //          font-size: 30px;
+  //          padding-right: 5px;
+  //        }
+  //     }
+  //   }
+  //   .header-title{
+  //     position: absolute;
+  //     bottom: 0;
+  //     height: 100px;
+  //     width: 100%;
+  //     .profile_img{
+  //       height: 100px;
+  //       position: absolute;
+  //       bottom: 0;
+  //       width: 100px;
+  //       left: 20px;
+  //       img{
+  //         border: 3px solid white;
+  //         border-radius: 50%;
+  //         width: 73%;
+  //         bottom: 10px;
+  //         position: absolute;
+  //       }
+  //     }
+  //     .view_title{
+  //       position: absolute;
+  //       left: 110px;
+  //       font-size: 25px;
+  //       width: 130px;
+  //       font-weight: 500;
+  //       color: #fff;
+  //     }
+  //   }
+  // }
+
+  .bg-clr{
+    background-color: #eff2f4;
+  }
+  .profile_section{
+    width: 100%;
+    position: absolute;
+    margin-bottom: 50px;
+    background-color: #eff2f4;
+
+    .list_view{
+      background-color: #fff;
+      padding-top: 45px;
+      margin-top: -80px;
+        .item-block{
+          height: 55px;
+          background-color: transparent;
+          padding: 0 5px 0 15px;
+          .label{
+            font-size: 17px;
+            color: $font-color;
+            font-weight: 500;
+            font-size: 18px;
+            sup{
+              color: red;
+              font-weight: 900;
+            }
+          }
+          .input {
+            input{
+              text-align: right;
+              font-size: 20px;
+              color: #515355;
+              }
+            }
+          .edit-select{
+            color: $font-color
+          }
+
+          .multi-picker{
+              color: $font-color;
+              font-size: 18px;
+          }
+        }
+    }
+
+    .clange_photo{
+      height: 32px;
+      width: 25px;
+      border-radius: 50%;
+      position: absolute;
+      top: 110px;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      background-color: $green-color;
+    }
+
+    img{
+      width: 120px;
+      margin: 25px auto;
+      display: block;
+      border: 10px solid #fff;
+      border-radius: 50%;
+    }
+  }
+  .save-btn{
+    position: fixed;
+    top: 78vh;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    left: calc(50vw - 40px);
+    background-color: $start-blue;
+    z-index: 9;
+  }
+
+
+}

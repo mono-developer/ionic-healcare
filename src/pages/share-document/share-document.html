@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Share Document
+    </ion-title>
+    <button ion-button full clear class="cancel" (click)="dismiss()">Cancel</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list class="list_view">
+
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input type="email" placeholder="–" [(ngModel)]="shareData.shared_email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Message (Optional)</ion-label>
+        <ion-input type="text" placeholder="–" [(ngModel)]="shareData.message"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Set Password</ion-label>
+        <ion-input type="password" placeholder="–" [(ngModel)]="shareData.password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" [(ngModel)]="shareData.expired_at" min="2017-10-01" max="2020-12-31"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button full (click)="share()">Share</button>
+</ion-content>

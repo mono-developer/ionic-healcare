@@ -1,0 +1,74 @@
+page-inbox-details {
+  .toolbar{
+    height: 180px;
+    padding: 0;
+    .toolbar-background{
+      background-image: url('../assets/image/inbox_image1.png');
+      background-size: 100% 100%;
+    }
+    .toolbar-background2{
+      background-image: url('../assets/image/inbox_image2.png');
+      background-size: 100% 100%;
+    }
+
+    .toolbar-content{
+      .header{
+        position: absolute;
+        padding-top: 0px;
+        top: 0;
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.27);
+        height: 55px;
+        .back_btn{
+          position: absolute;
+          top: 0;
+          color: white;
+          padding: 15px;
+          margin-top: 10px;
+          .icon{
+            font-size: 30px;
+            margin-right: 5px;
+          }
+        }
+        .create{
+          right: 0px;
+          width: 60px;
+        }
+      }
+
+    }
+    .desk-back{
+      width: 100%;
+      height: 100%;
+      background-image: url('../assets/image/inbox_image1.png');
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-size: 100% 100%;
+    }
+    .desk-back1{
+      background-image: url('../assets/image/inbox_image1.png');
+    }
+    .desk-back2{
+      background-image: url('../assets/image/inbox_image2.png');
+    }
+
+
+  }
+  .inbox1, .inbox2{
+    p{
+      font-size: 18px;
+    }
+    li{
+      font-size: 18px;
+    }
+    .date{
+      margin-top: 5px;
+      color: gray;
+    }
+    .link{
+      color: blue;
+      text-decoration: underline;
+    }
+  }
+}

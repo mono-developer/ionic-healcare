@@ -1,0 +1,35 @@
+<div class="nav-bar">
+  <div class="dd">
+    <p>Update Email Address</p>
+  </div>
+  <div class="feature">
+    <button ion-button clear style="left: 0;" (click)="dismiss()"><ion-icon name="ios-arrow-back"></ion-icon>Back</button>
+  </div>
+</div>
+<ion-content class="content-box">
+  <ion-list class="data">
+
+    <ion-item>
+      <ion-label>Current Eamil</ion-label>
+      <ion-input type="Email" placeholder="–" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Current Password</ion-label>
+      <ion-input type="password" placeholder="–" [(ngModel)]="current_pass"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list class="data">
+    <ion-item>
+      <ion-label>Update Email</ion-label>
+      <ion-input type="Email" placeholder="–" [(ngModel)]="new_email"></ion-input>
+    </ion-item>
+
+
+  </ion-list>
+
+  <button ion-button outline round full large (click)="updateEmail()" class="update">Update Email Address</button>
+
+</ion-content>

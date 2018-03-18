@@ -1,0 +1,18 @@
+
+<div class="success" style="background-color: #fff">
+
+  <div class="check" *ngIf="this.page == 'likeEdit'">
+    <img src="assets/icon/blue/circle-check.png" alt="">
+    <h1>Product Successfully <br>Linked!</h1>
+    <ion-item class="label-box">
+      <ion-input type="text" value="" [(ngModel)]="link.name"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="check" *ngIf="this.page == 'document'">
+    <img src="assets/icon/blue/circle-check.png" alt="">
+    <h1 >Thank you for your<br>purchase!</h1>
+  </div>
+
+  <button ion-button color="secondary" large (click)="done()" class="done">Done</button>
+</div>

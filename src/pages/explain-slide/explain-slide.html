@@ -1,0 +1,32 @@
+
+<ion-content>
+  <button ion-button icon-only clear large (click)="dismiss()" class="close"><ion-icon name="close"></ion-icon></button>
+
+    <ion-slides pager>
+
+      <ion-slide *ngFor="let item of sliders">
+        <div class="slide-box">
+          <img src="assets/image/{{item.image}}.png" alt="">
+          <h2>{{item.title}}</h2>
+          <p>{{item.description}}</p>
+        </div>
+      </ion-slide>
+
+      <ion-slide >
+        <div class="profile">
+          <img [src]="profile_img" alt="">
+          <p>{{name}}</p>
+          <h1>MyID Plus Subscription</h1>
+          <button ion-button class="find_out" full large (click)="monthlyStore()">1 Month Free Trial, $4.99/month</button>
+          <p style="margin: 5px;">or</p>
+          <button ion-button class="find_out" full large (click)="yearlyStore()">$49.99/year</button>
+        </div>
+        <p class="description">your plus subscription unlocks features previously displayed. Payment will be changed to iTunes Account at confirmation of purchase.
+          The subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period.
+          The Plus subscription auto-renewal may be managed and edited by the user under iTunes "Account Settings" after purchase.
+          Read <span (click)="termsPage()">Terms of Use</span> and <span (click)="privacyPage()">Privacy Statement</span> before buying.
+        </p>
+      </ion-slide>
+
+    </ion-slides>
+</ion-content>

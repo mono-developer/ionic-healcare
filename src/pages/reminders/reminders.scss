@@ -1,0 +1,171 @@
+page-reminders {
+  .toolbar{
+    height: 100px;
+    .toolbar-background{
+      background: $start-blue; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+      background: linear-gradient($start-blue, $end-blue);
+    }
+    .title{
+      padding:20px;
+      margin-top: 10px;
+      padding-top: 20px;
+      height: calc(70px + 20px) !important;
+      min-height: calc(44px + 20px) !important;
+
+      .toolbar-title{
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: left;
+
+        .header-icon {
+          height: 32px;
+          position: absolute;
+          left: 20px;
+          top: 28px;
+        }
+
+        .header-name {
+          margin-left: 40px;
+        }
+
+        .title-add-button {
+          position: absolute;
+          right: 20px;
+          top: 20px;
+
+          button {
+            background-color: #64A6D3;
+          }
+        }
+      }
+    }
+  }
+
+  .segment{
+    top: 100px;
+    position: fixed;
+    z-index: 200;
+
+    .segment-button{
+      background-color: white;
+      padding-top: 6px;
+      font-size: 18px;
+      padding-top: 10px;
+      height: 4.2rem;
+      border: none;
+      color: #000000;
+      border-bottom: 3px solid #e4e4e4;
+      border-radius: 0px !important;
+   }
+    .segment-button.segment-activated{
+     color: #0093ca;
+     background-color: #fff;
+     border-bottom: 3px solid #0093ca;
+
+   }
+  }
+
+  .segment-content {
+    margin-top: 38px;
+    ion-item, ion-item-divider {
+      border-bottom: 1px solid #CDCFD0;
+      .item-inner {
+        border-bottom: none !important;
+      }
+    }
+  }
+
+  .reminder-item.item-block {
+    .item-inner {
+      border-bottom: 0;
+    }
+    background-color: #F1F5F7;
+    border-radius: 6px;
+    border: 1px solid #CDCFD0 !important;
+  }
+
+  .reminder-item {
+    padding: 12px 2px 12px 12px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 12px;
+    ion-avatar {
+      img {
+        border-radius: 0 !important;
+      }
+    }
+    .tablet-name {
+      color: black;
+      font-size: 22px;
+    }
+    .tablet-remain {
+      font-size: 18px;
+    }
+    .tablet-note {
+      margin: 0;
+      .note-button {
+        height: 56px;
+        padding: 4px;
+        text-align: right;
+        img {
+          height: 28px;
+        }
+      }
+    }
+  }
+
+  .history-divider {
+    text-align: center;
+    span {
+      color: gray;
+    }
+  }
+
+  .history-item {
+    .item-taken {
+      font-size: 14px;
+      color: #0093ca;
+      display: inherit;
+      .item-taken-icon {
+        margin-left: 8px;
+        ion-icon {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .m-icon {
+    width: 40px;
+    height:40px;
+    margin: auto;
+    .m-icon-normal {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+    }
+  }
+
+  .m-icon-pill {
+    display: inline-flex;
+    .icon-left {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: left;
+      -webkit-mask-repeat: no-repeat;
+    }
+    .icon-right {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: right;
+      -webkit-mask-repeat: no-repeat;
+    }
+  }
+}

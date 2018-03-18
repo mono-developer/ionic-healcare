@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title *ngIf="save" class="title">New Medical Imaging</ion-title>
+    <ion-title *ngIf="!save" class="title">Medical Imaging</ion-title>
+    <button *ngIf="!medicalData.type || !medicalData.region || !medicalData.date_of_procedure || !medicalData.attach_file_report_url" ion-button clear item-end class="create right-btn" style="color:#ffffff73"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="save && medicalData.type && medicalData.region && medicalData.date_of_procedure && medicalData.attach_file_report_url" ion-button clear item-end class="create right-btn" (click)="createMedicalData()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="!save && medicalData.type && medicalData.region && medicalData.date_of_procedure && medicalData.attach_file_report_url" ion-button clear item-end class="create right-btn" (click)="updateMedicalData()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+        <img src="assets/icon/white/x-ray.png" alt="">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="portfolio">
+    <ion-list class="data">
+
+      <ion-item>
+        <ion-label>Type<sup>*</sup></ion-label>
+        <ion-select [(ngModel)]="medicalData.type" style="color: #515355;">
+          <ion-option value="" selected>Select</ion-option>
+          <ion-option *ngFor="let value of type" [value]="value">{{value}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="medicalData.type == 'Other'">
+        <ion-label>Other</ion-label>
+        <ion-input type="text" placeholder="–" [(ngModel)]="other"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Region<sup>*</sup></ion-label>
+        <ion-select [(ngModel)]="medicalData.region" style="color: #515355;">
+          <ion-option value="" selected>Select</ion-option>
+          <ion-option *ngFor="let value of region" [value]="value">{{value}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date of Procedure<sup>*</sup></ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" max="2030-10-31"  min="2017-10-31" [(ngModel)]="medicalData.date_of_procedure" placeholder="–"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button icon-left class="pdf" outline full *ngIf="medicalData.attach_file_report_url"
+    (click)="onClickItem(medicalData.attach_file_report_url)">
+      <ion-icon name="ios-images-outline"></ion-icon>
+      {{ medicalData.file_name }}
+      <ion-icon class="way_icon" name="ios-arrow-dropright-outline"></ion-icon>
+
+    </button>
+
+    <input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
+
+    <label for="file" ion-item class="attach">
+      <ion-icon name="attach"></ion-icon>
+      <span>Attach Imaging Report<sup>*</sup></span>
+    </label>
+
+    <ion-list class="public">
+      <ion-item>
+        <ion-label>Visible on public profile?</ion-label>
+        <ion-toggle [(ngModel)]="medicalData.visible"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <button *ngIf="!save" class="delete" ion-button outline full large (click)="deleteAlert()">Delete Medical Image</button>
+
+</ion-content>

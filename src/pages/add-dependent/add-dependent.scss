@@ -1,0 +1,86 @@
+page-add-dependent {
+  .toolbar {
+    height: auto;
+    .toolbar-background{
+      background: $start-green;
+      border-color: transparent !important;
+    }
+  }
+
+
+    .background{
+      height: 150px;
+      background: $start-green; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($start-green, $end-green); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient($start-green, $end-green); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient($start-green, $end-green); /* For Firefox 3.6 to 15 */
+      background: linear-gradient($start-green, $end-green); /* Standard syntax (must be last) */
+    }
+
+    .profile_section{
+      width: 100%;
+      position: absolute;
+      top: 10px;
+      // background-color: $bg-clr;
+
+      .list_view{
+        background-color: #fff;
+        padding-top: 50px;
+        margin-top: -85px;
+      .item-block{
+        height: 55px;
+        background-color: transparent;
+        padding: 0 5px 0 15px;
+        .label{
+          font-size: 17px;
+          color: $font-color;
+          font-weight: 500;
+          font-size: 18px;
+          sup{
+            font-weight: 900;
+            color: red;
+          }
+        }
+        .input {
+          input{
+            text-align: right;
+            font-size: 20px;
+            color: $font-color;
+            }
+          }
+        }
+        .datetime-text, .select-text{
+          color: $font-color;
+        }
+      }
+
+      .clange_photo{
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        position: absolute;
+        top: 125px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+
+      }
+
+      img{
+        width: 130px;
+        margin: 25px auto;
+        display: block;
+        border: 10px solid #fff;
+        border-radius: 50%;
+        /* margin-top: 103px; */
+        top: 0;
+        bottom: 50px;
+        background-color: #fff;
+      }
+    }
+    .list-bg{
+      height: 100%;
+      background-color: $bg-clr;
+    }
+
+}

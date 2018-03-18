@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title *ngIf="save" class="title">New Vital Condition</ion-title>
+    <ion-title *ngIf="!save" class="title">Vital Condition</ion-title>
+    <button *ngIf="save" ion-button clear item-end class="create right-btn" [disabled]="!vitalForm.valid" (click)="createVitalData()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="!save" ion-button clear item-end class="create right-btn" [disabled]="!vitalForm.valid" (click)="updateVitalData()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+      <img src="assets/icon/white/warning.png" alt="">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="portfolio">
+  <form [formGroup]="vitalForm">
+    <ion-list class="data">
+      <ion-grid class="name-grid">
+        <ion-row class="name-row">
+          <ion-col col-3>
+            <ion-label>Name
+              <sup>*</sup>
+            </ion-label>
+          </ion-col>
+          <ion-col col-9>
+            <ion-auto-complete [dataProvider]="completeTestService" formControlName="name" [options]="{ placeholder : '–' }"
+              #searchbar></ion-auto-complete>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-item>
+        <ion-label>Treating Physician</ion-label>
+        <ion-select formControlName="physician" [(ngModel)]="vitalData.physician" (ionChange)="onSelectChange(vitalData.physician)" style="color: #515355;">
+          <!-- <ion-option value="" selected>Select</ion-option> -->
+          <ion-option *ngFor="let item of physicianData" [value]="item.name" >{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item (click)="enterNote()">
+        <div style="color: #515355;" item-start>Notes</div>
+        <div class="option-val" item-end>
+          <p *ngIf="vitalData.notes == ''"></p>
+          <p *ngIf="vitalData.notes !== ''">{{vitalData.notes}}</p>
+        </div>
+      </ion-item>
+
+      <div class="note-rgn" *ngIf="selecting.notes">
+        <textarea name="name" formControlName="note_template" rows="4" placeholder="–" [(ngModel)]="note_template"></textarea>
+        <div class="note-buttons">
+          <button ion-button outline small color="light" (click)="noteCancel()">Cancel</button>
+          <button ion-button outline small color="light" (click)="noteSave()">OK</button>
+        </div>
+      </div>
+
+    </ion-list>
+
+    <!-- Attach File List -->
+    <ion-list class="attach_list">
+
+      <ion-item-sliding *ngFor="let item of vitalData.attach_file_urls; let i = index;" (click)="onClickItem(item.file_url)">
+
+        <ion-item>
+            <ion-icon name="ios-images-outline" item-start></ion-icon>
+            <p class="file_name">{{item.file_name}}</p>
+            <ion-icon name="ios-arrow-dropright-outline" item-end></ion-icon>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteItem(i)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
+
+    <label for="file" ion-item class="attach">
+
+      <ion-icon name="attach"></ion-icon>
+      <span>Attach Document</span>
+
+    </label>
+
+    <ion-list class="public">
+      <ion-item>
+        <ion-label>Visible on public profile?</ion-label>
+        <ion-toggle formControlName="is_private" [(ngModel)]="vitalData.visible"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <!-- <button ion-button color="light" outline full large style="color: #00d59c;"><ion-icon name="attach" style="margin-right: 10px;"></ion-icon>Attach Document</button> -->
+    <button *ngIf="!save" ion-button class="delete" outline full large  (click)="deleteAlert()">Delete Vital Condition</button>
+  </form>
+
+</ion-content>

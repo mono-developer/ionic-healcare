@@ -1,0 +1,24 @@
+
+<div class="bg-div">
+  <div class="success" >
+
+    <div *ngIf="value == 'share'", class="check">
+      <img src="assets/icon/blue/circle-check.png" alt="">
+      <h1 >Profile Shared Successfully</h1>
+    </div>
+
+    <button ion-button color="secondary" large (click)="done()" class="done">Ok</button>
+  </div>
+
+
+  <div *ngIf="value == 'medication'" class="success">
+
+    <div class="check">
+      <img src="assets/icon/blue/alarm-clock.png" alt="">
+      <h1>Would you like to create a pill reminder for this medication?</h1>
+    </div>
+
+    <button ion-button color="secondary" large (click)="done()" class="btn left">No</button>
+    <button ion-button color="secondary" large (click)="goReminder()" class="btn right">Yes</button>
+  </div>
+</div>

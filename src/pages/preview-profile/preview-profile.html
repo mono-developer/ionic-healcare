@@ -1,0 +1,13 @@
+<ion-content class="main-view">
+  <div class="overlay" (click)="dismiss()"></div>
+  <div class="modal_content">
+    <div class="title">Which profile would you like to preview?</div>
+    <ion-list>
+      <ion-item class="category" *ngFor="let item of profileData">
+        <img [src]="item.person.image_url.thumb" alt="">
+        <p>{{item.person.last_name}}</p>
+      </ion-item>
+    </ion-list>
+    <button ion-button full clear class="cancel" (click)="dismiss()">Cancel</button>
+  </div>
+</ion-content>

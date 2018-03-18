@@ -1,0 +1,25 @@
+
+
+<input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
+<ion-list class="popover-list">
+      <!-- <ion-list-header class="header">Options</ion-list-header> -->
+      <!-- <button ion-item>
+        <ion-icon name="ios-folder-outline"></ion-icon>
+        <label for="file">Upload File</label>
+      </button> -->
+      <label for="file" ion-item>
+        <ion-icon name="ios-cloud-upload-outline"></ion-icon>
+        Upload File
+      </label>
+      <!-- <button for="file" ion-item>Upload File...</button> -->
+
+      <button ion-item (click)="createFolderName()">
+        <ion-icon name="ios-folder-outline"></ion-icon>
+        Create Folder
+      </button>
+      <button ion-item (click)="select()">
+        <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
+        Select
+      </button>
+
+</ion-list>

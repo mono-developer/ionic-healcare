@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-fab class="title-add-button">
+        <button ion-fab (click)="addReminder()"><ion-icon name="md-add"></ion-icon></button>
+      </ion-fab>
+      <img class="header-icon" src="assets/icon/clock.png">
+      <span class="header-name">Reminders</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-segment [(ngModel)]="segmentValue" color="primary">
+  <ion-segment-button value="reminders">
+    Active
+  </ion-segment-button>
+  <ion-segment-button value="history">
+    History
+  </ion-segment-button>
+</ion-segment>
+
+<ion-content>
+
+  <!-- REMINDERS -->
+
+  <div padding class="segment-content" *ngIf="segmentValue=='reminders'">
+    <ion-list>
+      <ion-item class="reminder-item" *ngFor="let item of items;" (click)="showDetail(item)">
+        <ion-avatar item-start>
+          <div class="" *ngIf="item.form && item.color1 && item.color2">
+            <div class="m-icon m-icon-pill" *ngIf="item.form.name == 'Pill'">
+              <div class="icon-left"
+              [ngStyle]="{'-webkit-mask-image': 'url(assets/' + item.form.file + ')', 'background-color': item.color1.color}"
+              ></div>
+              <div class="icon-right"
+              [ngStyle]="{'-webkit-mask-image': 'url(assets/' + item.form.file + ')', 'background-color': item.color2.color}"
+              ></div>
+            </div>
+            <div class="m-icon" *ngIf="item.form.name !== 'Pill'">
+              <div class="m-icon-normal"
+              [ngStyle]="{'-webkit-mask-box-image': 'url(assets/' + item.form.file + ')', 'background-color': item.color1.color}"
+              ></div>
+            </div>
+          </div>
+        </ion-avatar>
+        <p class="tablet-name">{{item.name}}</p>
+        <p class="tablet-remain">{{item.quantity}} Remanining</p>
+        <div item-end="" class="tablet-note">
+          <div class="note-button">
+            <img src="assets/icon/continued-circles-vertical.png">
+          </div>
+          <p *ngIf="item.profile">{{item.profile.profile.first_name}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- HISTORY -->
+
+  <div class="segment-content" *ngIf="segmentValue=='history'">
+    <ion-item>
+      <div item-start>
+        Range:
+      </div>
+      <div item-end>
+        This Week
+      </div>
+    </ion-item>
+    <ion-item>
+      <div item-start>
+        Medication:
+      </div>
+      <div item-end>
+        All Meds
+      </div>
+    </ion-item>
+    <ion-item-divider color="light" class="history-divider">
+      <span>Taken {{taken.used}}/{{taken.needed}}</span>
+    </ion-item-divider>
+    <ion-list>
+      <ion-item class="history-item" *ngFor="let item_history of histories;">
+        <div item-start>
+          {{item_history.date}}
+        </div>
+        <div class="item-taken" item-end>
+          <span>{{item_history.used}}/{{item_history.needed}}</span>
+          <div class="item-taken-icon">
+            <ion-icon name="arrow-down"></ion-icon>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

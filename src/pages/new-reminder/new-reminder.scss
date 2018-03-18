@@ -1,0 +1,135 @@
+@import '../../styles/global.scss';
+
+new-reminder {
+  ion-content {
+    background-color: #E6E6E6 !important;
+  }
+  .toolbar {
+    height: 100px;
+    .toolbar-content {
+      .spec-title {
+        position: absolute;
+        top: 20px;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        color: white
+      }
+
+      .tablet-cover {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        position: absolute;
+        bottom: 8px;
+        .tablet {
+          width: 40px;
+          margin: auto;
+        }
+      }
+    }
+    .toolbar-background{
+      background-color: #7CCC8A;
+    }
+    ion-buttons {
+      position: absolute;
+      top: 20px;
+      button {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 18px;
+        color: white;
+      }
+    }
+    .cancel {
+      left: 0;
+    }
+    .save {
+      right: 0;
+    }
+    .back-button {
+      color: white;
+    }
+    .title{
+      padding:20px;
+      margin-top: 10px;
+      padding-top: 20px;
+      height: calc(70px + 20px) !important;
+      min-height: calc(44px + 20px) !important;
+
+      .toolbar-title{
+        color: #fff;
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  ion-item {
+    ion-label {
+      margin: 16px 8px 16px 0 !important;
+    }
+    ion-input input{
+      text-align: right;
+    }
+
+    ion-select {
+      .select-text {
+        color: gray !important;
+      }
+    }
+  }
+
+  .space {
+    width: 100%;
+    height: 40px;
+    padding: 12px;
+    font-size: 10px;
+    color: gray;
+    text-align: center;
+  }
+
+  .tablet-preview {
+    text-align: center;
+    padding: 20px 0 20px;
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .m-icon {
+    width: 40px;
+    height:40px;
+    margin: auto;
+    .m-icon-normal {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+    }
+  }
+
+  .m-icon-pill {
+    display: inline-flex;
+    .icon-left {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: left;
+      -webkit-mask-repeat: no-repeat;
+    }
+    .icon-right {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: right;
+      -webkit-mask-repeat: no-repeat;
+    }
+  }
+
+  .toggle-checked .toggle-icon {
+    background-color: #7CCC8A !important;
+  }
+
+}

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      More
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-clr">
+
+  <ion-list>
+
+    <ion-item class="list-item" (click)="goAddDependentPage()">
+      <img src="assets/icon/gray/person.png" item-start class="start_icon">
+        Add Dependent Profile
+    </ion-item>
+
+    <ion-item class="list-item" (click)="goManageSharingPage()">
+      <img src="assets/icon/gray/share-2.png" item-start class="start_icon">
+        Manage Sharing
+        <ion-icon name="arrow-forward" item-end class="second_icon"></ion-icon>
+    </ion-item>
+
+    <ion-item class="list-item" (click)="goLinkNewPage()">
+      <img src="assets/icon/gray/add-link.png" item-start class="start_icon">
+        Link New Product
+    </ion-item>
+
+    <ion-item class="list-item">
+      <img src="assets/icon/gray/alarm-clock.png" item-start class="start_icon">
+        Add Reminders Schedule
+    </ion-item>
+
+  </ion-list>
+
+  <!-- <button ion-button outline large full class="setting" (click)="goSettingsPage()">
+    <ion-icon name="ios-settings-outline" class="left"></ion-icon>
+    <p>Settings</p>
+    <ion-icon name="ios-arrow-forward-outline" class="right"></ion-icon>
+  </button> -->
+
+  <ion-list style="margin-top: 30px;">
+    <ion-item class="list-item" (click)="goSettingsPage()">
+
+
+      <!-- <img src="assets/icon/gray/atom.png" item-start class="start_icon"> -->
+        <ion-icon name="ios-settings-outline" item-start></ion-icon>
+        Settings
+      <ion-icon name="arrow-forward" item-end class="second_icon"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

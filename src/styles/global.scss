@@ -1,0 +1,20 @@
+.disabled {
+  color: gray !important;
+}
+
+.reminder-item {
+  border-bottom: 0.55px solid #c8c7cc !important;
+  .item-inner {
+    border-bottom: 0 !important;
+
+    ion-multi-picker {
+      button {
+        border-bottom: 0.55px solid #c8c7cc !important;
+      }
+    }
+  }
+}
+
+.invalid {
+  border-bottom: 2px solid #FF3B30 !important;
+}

@@ -1,0 +1,191 @@
+page-pharmacies-edit {
+  .bg-clr{
+      background-color: #e8e8e8;
+  }
+
+  .portfolio{
+
+    background-color: #e8e8e8;
+    .search_bar{
+      position: absolute;
+      top: 0px;
+      z-index: 9999;
+      width: 97%;
+
+      ion-searchbar {
+       position: absolute;
+       opacity: .7;
+       z-index: 3;
+      }
+
+      .item-block{
+        width: 85%;
+        background-color: transparent;
+        height: 40px;
+        min-height: 40px;
+        padding-left: 10px;
+        display: inline-block;
+        .item-inner{
+          border-bottom: none;
+          .label{
+            max-width: 62px;
+            min-width: 62px;
+          }
+          .input{
+            background-color: #fff;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            height: 32px;
+            padding-left: 10px;
+            color: $font-color;
+
+            .text-input{
+              width: calc(100% - 5px);
+              height: 100%;
+              margin: 0;
+              text-align: left;
+            }
+          }
+        }
+      }
+      button{
+        height: 30px;
+        margin-top: 0px;
+        display: inline-block;
+        position: absolute;
+        top: 7px;
+        width: 15%;
+      }
+    }
+
+    .data{
+      margin-top: 1px;
+      .item-block{
+        height: 55px;
+        .label{
+          color: #404040;
+          span{
+            font-size: 12px;
+            color: #818181;
+          }
+          sup{
+            color: red;
+            font-weight: 900;
+          }
+        }
+        input{
+          text-align: right;
+          font-size: 20px;
+          color: $font-color;
+        }
+        textarea.text-input{
+          text-align: right;
+          font-size: 20px;
+          color: $font-color;
+        }
+      }
+    }
+    .select{
+      button{
+        background-color: transparent;
+      }
+    }
+    button{
+      background-color: #fff;
+      border-color: lightgray;
+      margin-bottom: 30px;
+    }
+  }
+
+  .attach_list{
+    margin-bottom: 15px;
+    .file_name{
+      color: $font-color;
+      font-size: 18px;
+    }
+  }
+
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .attach{
+    padding: 0;
+    text-align: center;
+    border-top: 1px solid #c8c7cc;
+    height: 55px;
+    color: $start-green;
+    font-size: 18px;
+    .icon{
+      line-height: 43px;
+      font-size: 25px;
+      position: absolute;
+      margin-left: -20px;
+      margin-top: -10px;
+      font-size: 30px;
+    }
+    .label{
+      margin-left: 20px;
+    }
+  }
+
+  .public{
+    // display: none;
+    margin-top: 30px;
+    border-top: 1px solid #c8c7cc;
+    .item-block{
+      height: 55px;
+      .label{
+        color: $font-color;
+        font-size: 18px;
+      }
+      .toggle{
+        button{
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .scroll {
+       height: 100%
+   }
+
+   #map {
+     height: 250px;
+     width: 100%;
+     top: 0;
+     left: 0;
+     position: relative !important;
+     overflow: hidden!important;
+     border: 1px solid #cbcbcb;
+   }
+   ion-searchbar {
+       position: absolute;
+       opacity: .7;
+       z-index: 3;
+   }
+   .currentitem {
+        position: fixed;
+        opacity: .8;
+        top: 12rem;
+        left: 0;
+        z-index: 103;
+        width: 100%;
+        height: 50px;
+        .item-ios .item-inner {
+            background: none;
+            padding-right: 10px;
+        }
+    }
+
+    .delete{
+      background-color: #fff;
+      color: red;
+      border-color: #c8c7cc;
+    }
+}

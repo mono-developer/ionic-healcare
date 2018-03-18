@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="title">
+      <img src="assets/image/main_logo.png" alt="" class="logo">
+      <button ion-button icon-only  class="sheet" (click)="optionSheet()"><ion-icon name="ios-more"></ion-icon></button>
+    </ion-title>
+
+    <div class="slide-box">
+
+    	<swiper [config]="config"  style="height: 100%;" class="swiper-container" *ngIf="isLoading">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of profiles">
+            <img [src]="item.person.image_url.thumb" alt="">
+            <p>{{item.person.last_name}}</p>
+          </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </swiper>
+    </div>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-segment [(ngModel)]="relationship" color="primary" (ionChange)="segmentChanged($event)">
+
+    <ion-segment-button value="edit">Edit</ion-segment-button>
+    <ion-segment-button value="document" (click)="getDocument()">Documents</ion-segment-button>
+    <ion-segment-button value="share">Share</ion-segment-button>
+
+</ion-segment>
+
+
+
+<ion-content >
+
+  <div class="profile-div">
+
+    <div *ngIf="relationship=='edit'">
+      <div class="add-category">
+        <button ion-button full outline (click)="addCategoryPage()">
+          <ion-icon name="add"></ion-icon>Add a new category</button>
+      </div>
+
+      <ion-list style="margin: 0;">
+        <ion-item class="list-item" *ngFor="let item of pages" (click)="onPageClick($event, item.page)">
+          <img src="assets/icon/gray/{{item.icon}}.png" item-start class="start_icon"> {{item.name}}
+          <sup>{{item.sup}}</sup>
+          <ion-icon name="arrow-forward" item-end class="second_icon"></ion-icon>
+        </ion-item>
+      </ion-list>
+
+      <ion-list style="margin: 20px 0 ;">
+        <ion-item class="list-item" (click)="goLinkedProductPage()">
+          <img src="assets/icon/gray/link.png" item-start class="start_icon"> Manage Linked Products
+          <ion-icon name="arrow-forward" item-end class="second_icon"></ion-icon>
+        </ion-item>
+      </ion-list>
+
+    </div>
+
+    <!-- Document -->
+    <div class="document" *ngIf="relationship=='document'">
+
+      <!-- Lock Slider Page -->
+      <div class="no-value" *ngIf="this.subscription_type == 'Normal'">
+        <div class="no_premium">
+          <img src="assets/image/plus-lock.png" alt="" style="margin-top: 70px;">
+          <h2>Upgrade to Plus</h2>
+          <p>to attach documents to your profile and more</p>
+          <button ion-button type="button" name="button" full large class="find_out" (click)="explainSlidePage()">Find out more</button>
+        </div>
+
+      </div>
+
+      <!-- Docuament Page -->
+      <div class="premium" *ngIf="this.subscription_type == 'Premium'">
+
+        <div class="filter-box">
+          <ion-searchbar [(ngModel)]="searchItem" (ionInput)="setFilteredItems()" class="search-bar"></ion-searchbar>
+          <button ion-button icon-only color="secondary" (click)="selectOptions($event);" *ngIf="checkbox_flag!=1">
+            <ion-icon name="ios-add-outline"></ion-icon>
+          </button>
+          <button ion-button icon-only color="secondary" (click)="cancelSelect();" *ngIf="checkbox_flag==1">Cancel</button>
+        </div>
+
+        <div *ngIf="!this.slug.length==0" class="folder-title">
+          <button ion-button icon-left small clear (click)="getPreviewDocument()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            Back
+          </button>
+          <p class = "document-title">{{itemName}}</p>
+        </div>
+
+        <ion-item-group *ngFor="let group of groupedContacts">
+
+          <ion-item-divider light>{{group.letter}}</ion-item-divider>
+          <ion-item *ngFor="let item of group.contacts" class="file-list">
+            <ion-label class="title" *ngIf="item.item_type == 'folder'" (click)="onItemClick(item, item.profile_id)">{{item.name}}</ion-label>
+            <ion-label class="title" *ngIf="item.item_type == 'document'" (click)="onItemClick(item, item.profile_id)">{{item.file_name}}</ion-label>
+            <ion-checkbox *ngIf="checkbox_flag" (ionChange)=check1(item.id)></ion-checkbox>
+            <ion-avatar item-start class="image-avatar">
+              <img src="assets/image/folder.png" *ngIf="item.item_type == 'folder'" class="img1">
+              <img src="assets/image/jpg.png" *ngIf="item.media_type == 'image'" class="img2">
+              <img src="assets/image/doc.png" *ngIf="item.media_type == 'document'" class="img2">
+            </ion-avatar>
+            <ion-icon name="ios-arrow-dropdown" item-end (click)="moreOptions(item)"></ion-icon>
+          </ion-item>
+
+        </ion-item-group>
+
+      </div>
+      <button color="danger" ion-button icon-only class="delete-btn" *ngIf="checkbox_flag==1" (click)="deleteItems();">
+        <ion-icon name="ios-trash"></ion-icon>
+      </button>
+    </div>
+
+    <!-- Share -->
+    <div class="share" *ngIf="relationship=='share'">
+
+      <div class="no-value" *ngIf="this.subscription_type == 'Normal'">
+        <div class="no_premium">
+          <img src="assets/image/plus-lock.png" alt="" style="margin-top: 70px;">
+          <h2>Upgrade to Plus</h2>
+          <p>to attach documents to your profile and more</p>
+          <button ion-button type="button" name="button" full large class="find_out" (click)="explainSlidePage()">Find out more</button>
+        </div>
+
+      </div>
+
+      <ion-list class="input_box" *ngIf="this.subscription_type == 'Premium'">
+
+        <ion-item>
+          <ion-label stacked>Email your profile to:<sup>*</sup></ion-label>
+          <ion-input type="email" placeholder="" [(ngModel)]="share.shared_email"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label stacked>Message</ion-label>
+          <ion-input type="text" [(ngModel)]="share.message"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label stacked>Set Password</ion-label>
+          <ion-input type="text" placeholder="" [(ngModel)]="share.password"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label stacked>Set Expiration</ion-label>
+          <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MMM/DD" [(ngModel)]="share.expired_at" min="2017-10-01" max="2020-12-31"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <button ion-button block large class="send" (click)="shareEmail()">Send</button>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-list class="manage-btn" *ngIf="this.subscription_type == 'Premium'">
+
+        <ion-item class="list-item" (click)="goManageSharingPage()">
+          <img src="assets/icon/gray/link.png" item-start class="start_icon" style="margin-left: 16px;"> Manage Sharing
+          <ion-icon name="arrow-forward" item-end class="second_icon"></ion-icon>
+        </ion-item>
+
+      </ion-list>
+
+    </div>
+  </div>
+
+
+
+
+
+
+</ion-content>

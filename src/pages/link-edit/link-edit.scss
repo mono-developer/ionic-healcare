@@ -1,0 +1,39 @@
+page-link-edit {
+
+  .portfolio{
+
+    background-color: #e8e8e8;
+
+    .scan{
+      background: #fff;
+      border-color: #b5b5b5;
+      margin: 40px 0;
+      .icon{
+        margin-right: 10px;
+        font-size: 40px;
+      }
+    }
+    .item-block:first-child {
+      border-top: 0.55px solid #c8c7cc !important;
+    }
+    .data{
+      height: 60px;
+
+      .label{
+        font-weight: 500;
+        color: $font-color;
+        sup{
+          color: red;
+          font-weight: 900;
+        }
+      }
+
+      .text-input{
+        text-align: right;
+        color: $font-color;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,50 @@
+
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button clear item-end class="back_btn" left (click)="closePage()"><ion-icon name="arrow-back"></ion-icon>Back</button>
+    <ion-title class="title">
+      <img src="assets/image/main_logo.png" alt="" class="logo">
+    </ion-title>
+    <button ion-button clear item-end class="create right-btn circle-add-btn" (click)="createMedicationsData()"><ion-icon name="md-add"></ion-icon></button>
+    <div class="header-title">
+      <div class="profile_img">
+        <img *ngIf="!imagePath" src="assets/icon/gray/user-circle1.png" alt="">
+        <img *ngIf="imagePath" [src]="imagePath" alt="">
+      </div>
+      <p class="view_title">Medications</p>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content refreshingText="Refreshing...">
+      </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+
+    <ion-item class="reminder-item" *ngFor="let item of medicationData" (click)="editMedicationsData($event, item)">
+      <ion-avatar item-start>
+
+        <div class="m-icon m-icon-pill" *ngIf="item.form == 'pill'">
+          <div class="icon-left" [ngStyle]="{'-webkit-mask-image': 'url(assets/tablet-icon/icon-' + item.form + '.png)', 'background-color': item.color1}"></div>
+          <div class="icon-right" [ngStyle]="{'-webkit-mask-image': 'url(assets/tablet-icon/icon-' + item.form + '.png)', 'background-color': item.color2}"></div>
+        </div>
+        <div class="m-icon" *ngIf="item.form !== 'pill'">
+          <div class="m-icon-normal" [ngStyle]="{'-webkit-mask-box-image': 'url(assets/tablet-icon/icon-' + item.form + '.png)', 'background-color': item.color1}"></div>
+        </div>
+
+      </ion-avatar>
+      <p class="tablet-name">{{item.name}}</p>
+      <p class="tablet-remain">{{item.frequency}} {{item.dosage}}</p>
+      <div item-end="" class="tablet-note">
+        <div class="note-button">
+          <img src="assets/icon/continued-circles-vertical.png">
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

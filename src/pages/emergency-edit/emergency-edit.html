@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title *ngIf="save" class="title">New Emergency Contact</ion-title>
+    <ion-title *ngIf="!save" class="title">Emergency Contact</ion-title>
+    <button *ngIf="!save" ion-button clear item-end [disabled]="!emergencyForm.valid"  class="create right-btn" (click)="emergencyDataUpdate()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="save" ion-button clear item-end class="create right-btn" [disabled]="!emergencyForm.valid"  (click)="emergencyDataCreate()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+      <img src="assets/icon/white/contacts-book.png" alt="">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-clr">
+  <form [formGroup]="emergencyForm">
+    <div class="portfolio">
+      <ion-list class="data">
+
+        <ion-item>
+          <ion-label>Name
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="text" placeholder="–" formControlName="name" [(ngModel)]="emergencyData.name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Relationship</ion-label>
+          <ion-select [(ngModel)]="emergencyData.relationship" formControlName="relationship" style="color: #515355;">
+            <ion-option value="" selected></ion-option>
+            <ion-option *ngFor="let item of relationships" [value]="item.name">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="emergencyData.relationship == 'Other'">
+          <ion-label>Other
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="text" placeholder="–" formControlName="other" [(ngModel)]="other"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Mobile Phone
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="tel" placeholder="–" formControlName="phone_number" [(ngModel)]="emergencyData.phone_number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Alt Phone</ion-label>
+          <ion-input type="tel" placeholder="–" formControlName="alt_phone_number" [(ngModel)]="emergencyData.alt_phone_number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input type="email" placeholder="–" formControlName="email" [(ngModel)]="emergencyData.email"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <button *ngIf="!save" ion-button class="delete" outline full large (click)="deleteAlert()">Delete Emergency Contact</button>
+    </div>
+  </form>
+
+</ion-content>

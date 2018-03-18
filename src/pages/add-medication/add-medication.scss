@@ -1,0 +1,406 @@
+@import '../../styles/global.scss';
+
+add-medication {
+  ion-content {
+    background-color: #E6E6E6 !important;
+    .scroll-content {
+      padding-top: 120px !important;
+    }
+  }
+
+  .name-grid {
+    background: #fff;
+    // border-bottom: 2px solid #e4e4e4;
+    padding: 0px;
+    padding-left: 10px;
+    /* margin-left: 3px; */
+    .name-row{
+      border-bottom: 2px solid #e4e4e4;
+      .label {
+        font-size: 16px;
+        margin: 13px 8px 13px 0;
+        color: #676a6c;
+    }
+    .searchbar-ios {
+
+      background: rgba(0, 0, 0, 0)!important;
+  }
+     sup {
+      color: red;
+      font-weight: 900;
+    }
+    .searchbar-input {
+      padding: 7px 46px 2px 3px;
+      border-radius: 2px;
+      background-position: left 8px center;
+      height: auto;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 3rem;
+      color: #141414;
+      background-color: #fff;
+      -webkit-box-shadow: 0 2px 2px 0 #fff, 0 3px 1px -2px #fff, 0 1px 5px 0 #fff;
+      box-shadow: 0 2px 2px 0 #fff, 0 3px 1px -2px #fff, 0 1px 5px 0 #fff;
+      text-align: right;
+    }
+    }
+  }
+
+  .searchbar-search-icon {
+    display: none;
+}
+ion-auto-complete {
+  width: 100%;
+}
+  .toolbar2{
+    .toolbar-background{
+      background: $start-green; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($start-green, $end-green); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient($start-green, $end-green); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient($start-green, $end-green); /* For Firefox 3.6 to 15 */
+      background: linear-gradient($start-green, $end-green); /* Standard syntax (must be last) */
+    }
+  }
+  // ion-list{
+  //   .searchbar-search-icon {
+  //     display: none;
+  // }
+  //   .searchbar .searchbar-input {
+  //     background-color: #fff;
+  //     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  //     box-shadow: 0 2px 2px 0 #fff, 0 3px 1px -2px #fff, 0 1px 5px 0 #fff;
+  // }
+  //   background:#fff;
+  //   ul{
+  //     list-style: none;
+  //     background:#fff;
+  //     li{
+  //       padding: 10px;
+  //     }
+  //     // li:hover{
+  //     //  background: #fff;
+  //     // }
+  //   }
+  // }
+  // .searchbar{
+  //   background: #fff!important;
+  //   border: 1px solid #dedede;
+  // }
+  .toolbar {
+    .toolbar-content {
+      .tablet-cover {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        position: absolute;
+        bottom: 8px;
+        .tablet {
+          width: 40px;
+          margin: auto;
+        }
+      }
+    }
+
+    ion-buttons {
+      position: absolute;
+      top: 20px;
+      button {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 18px;
+        color: white;
+      }
+    }
+  }
+
+  ion-item {
+    border-bottom: 0.55px solid #c8c7cc !important;
+    .item-inner {
+      padding: 5px 8px 6px 0;
+      border-bottom: 0 !important;
+    }
+
+    ion-input input{
+      text-align: right;
+      color: $font-color;
+    }
+    .label{
+      color: $font-color;
+    }
+
+    .option-val {
+      white-space: nowrap;
+      overflow: hidden;
+      color: $font-color;
+      .p1 {
+        font-size: 1.7rem !important;
+        color: #9f9f9f;
+      }
+      .p2{
+        font-size: 1.7rem !important;
+        color: $font-color;
+      }
+    }
+  }
+
+  .form-rgn {
+    width: 100vw;
+    padding: 2.5vw;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: gray;
+    .form-item {
+      width: 19vw;
+      padding: 3vw;
+      .form-img {
+        width: 100%;
+        height: 13vw;
+        background-color: white;
+        -webkit-mask-size: 100%;
+        -webkit-mask-position-y: center;
+        -webkit-mask-position-x: left;
+        -webkit-mask-repeat: no-repeat;
+      }
+      .form-name {
+        text-align: center;
+        width: 100%;
+        color: white;
+        font-size: 12px;
+        padding-top: 4px;
+      }
+    }
+  }
+
+  .color-rgn {
+    width: 100vw;
+    padding: 2.5vw;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: gray;
+    .color-item {
+      width: 19vw;
+      padding: 3vw;
+      .color-img {
+        width: 100%;
+        height: 13vw;
+        border-radius: 50%;
+        box-shadow: black 1px 1px 4px;
+      }
+      .color-name {
+        text-align: center;
+        width: 100%;
+        color: white;
+        font-size: 12px;
+        padding-top: 4px;
+      }
+    }
+  }
+
+  .note-rgn {
+    height: 150px;
+    padding: 12px;
+    border-bottom: 0.55px solid #c8c7cc;
+    background: gray;
+    textarea {
+      width: 100%;
+      border: 1px solid #c8c7cc;
+      border-radius: 9px;
+      font-size: 16px;
+      padding: 6px;
+    }
+
+    .note-buttons {
+      width: 100%;
+      text-align: right;
+      button {
+        width: 72px;
+      }
+    }
+  }
+
+  .space {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+    border-bottom: 0.55px solid #c8c7cc !important;
+  }
+
+  .m-icon {
+    width: 40px;
+    height:40px;
+    margin: 0 auto;
+    .m-icon-normal {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+    }
+  }
+
+  .m-icon-pill {
+    display: inline-flex;
+    .icon-left {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: left;
+      -webkit-mask-repeat: no-repeat;
+    }
+    .icon-right {
+      width: 50%;
+      height: 100%;
+      -webkit-mask-size: 200%;
+      -webkit-mask-position-y: center;
+      -webkit-mask-position-x: right;
+      -webkit-mask-repeat: no-repeat;
+    }
+  }
+
+  .delete{
+    color: red;
+    background-color: #fff;
+    border-color: lightgray;
+    margin-bottom: 30px;
+
+  }
+
+  .bg-clr{
+      background-color: #e8e8e8;
+  }
+  .portfolio{
+
+    background-color: #e8e8e8;
+
+    .data{
+      .item-block{
+        height: 55px;
+        .label{
+          color: #404040;
+          sup{
+            color: red;
+            font-weight: 900;
+          }
+        }
+        input{
+          text-align: right;
+          font-size: 20px;
+          color: $font-color;
+        }
+        textarea.text-input{
+          text-align: right;
+          font-size: 20px;
+          color: $font-color;
+        }
+
+      }
+    }
+    .select{
+      button{
+        background-color: transparent;
+      }
+    }
+    .option-val {
+      white-space: nowrap;
+      overflow: hidden;
+      color: $font-color;
+      p {
+        font-size: 20px;
+        color: $font-color;
+      }
+    }
+    .note-rgn {
+      height: 150px;
+      padding: 12px;
+      border-bottom: 0.55px solid #c8c7cc;
+      background: gray;
+      textarea {
+        width: 100%;
+        border: 1px solid #c8c7cc;
+        border-radius: 9px;
+        font-size: 16px;
+        padding: 6px;
+      }
+
+      .note-buttons {
+        width: 100%;
+        text-align: right;
+        button {
+          width: 72px;
+          border-color: #f4f4f4;
+          color: #f4f4f4;
+          background-color: transparent;
+        }
+      }
+    }
+    button{
+      background-color: #fff;
+      border-color: lightgray;
+      margin-bottom: 30px;
+      background-color: transparent;
+    }
+  }
+
+  .attach_list{
+    margin-bottom: 15px;
+    .file_name{
+      color: $font-color;
+      font-size: 18px;
+    }
+  }
+
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .attach{
+    padding: 0;
+    text-align: center;
+    border-top: 1px solid #c8c7cc;
+    height: 55px;
+    color: $start-green;
+    font-size: 18px;
+    .icon{
+      line-height: 43px;
+      font-size: 25px;
+      position: absolute;
+      margin-left: -20px;
+      margin-top: -10px;
+      font-size: 30px;
+    }
+    .label{
+      margin-left: 20px;
+    }
+  }
+
+  .public{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    border-top: 1px solid #c8c7cc;
+    .item-block{
+      height: 55px;
+      .label{
+        color: $font-color;
+        font-size: 18px;
+
+      }
+      .toggle{
+        button{
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .delete{
+    color: red;
+    background-color: white;
+    height: 55px;
+  }
+
+}

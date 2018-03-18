@@ -1,0 +1,73 @@
+page-settings {
+  .toolbar{
+    height: 70px;
+    .toolbar-background{
+      background: $start-blue; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+      background: linear-gradient($start-blue, $end-blue);
+    }
+    .back-button{
+      color: #fff;
+      position:absolute;
+      top: 15px;
+    }
+    .title{
+        padding:20px;
+      .toolbar-title{
+        color: #fff;
+        font-size: 25px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .bg-clr{
+      background-color: #eff2f4;
+  }
+
+  .item-block:first-child
+  {
+      border-top: 0.55px solid #c8c7cc !important;
+  }
+  .list-item{
+    height: 60px;
+    .start_icon{
+      width: 30px;
+    }
+    .second_icon{
+      color: $font-color;
+    }
+    .label{
+      font-size: 20px;
+      color: $font-color;
+      .icon{
+
+      }
+    }
+  }
+
+  .toggle-button{
+      height: 50px;
+      border-bottom: 1px solid #c8c7cc;
+      border-top: 1px solid #c8c7cc;
+      .item-inner{
+          border-bottom: none !important;
+      }
+    .label{
+      font-size: 20px;
+      color: $font-color;
+    }
+  }
+  .explain{
+    padding: 5px 10px;
+    font-size: 14px;
+    color: gray;
+  }
+  .sign-out{
+    background-color: white;
+    border: 1px solid #c8c7cc;
+    color: #ff3B30;
+  }
+}

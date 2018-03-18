@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title *ngIf="save" class="title">New Family History</ion-title>
+    <ion-title *ngIf="!save" class="title">Family History</ion-title>
+    <button *ngIf="!familyHistoryData.name || !familyHistoryData.relationship" ion-button clear item-end class="create right-btn" style="color:#ffffff73">
+        <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="save && familyHistoryData.name && familyHistoryData.relationship" ion-button clear item-end class="create right-btn" (click)="createFamilyHistoryData()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="!save  && familyHistoryData.name && familyHistoryData.relationship" ion-button clear item-end class="create right-btn" (click)="updateFamilyHistoryData()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+      <img src="assets/icon/white/family.png" alt="">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="portfolio">
+      <ion-list class="data">
+
+      <ion-item>
+        <ion-label>Name
+          <sup>*</sup>
+        </ion-label>
+        <ion-input type="text" placeholder="–" [(ngModel)]="familyHistoryData.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Relationship
+          <sup>*</sup>
+        </ion-label>
+        <ion-select [(ngModel)]="familyHistoryData.relationship" style="color: #515355;">
+          <ion-option value="" selected>Select</ion-option>
+          <ion-option *ngFor="let item of relationships" [value]="item.name">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="familyHistoryData.relationship == 'Other'">
+        <ion-label>Other
+          <sup>*</sup>
+        </ion-label>
+        <ion-input type="text" placeholder="–" [(ngModel)]="other"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Birthdate</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" [(ngModel)]="familyHistoryData.birthdate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Deceased or Living</ion-label>
+        <ion-select [(ngModel)]="familyHistoryData.deceased" style="color: #515355;">
+          <ion-option value="" selected>Select</ion-option>
+          <ion-option *ngFor="let item of deceased" [value]="item.value_string">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="familyHistoryData.deceased">
+        <ion-label>Year of Death</ion-label>
+        <ion-datetime class="date_input" displayFormat="YYYY" pickerFormat="YYYY" [(ngModel)]="familyHistoryData.deceased_year"
+          style="color: #515355;"></ion-datetime>
+      </ion-item>
+
+      <ion-item (click)="enterNote()">
+        <div style="color: #515355;" item-start>Notes</div>
+        <div class="option-val" item-end>
+          <p *ngIf="familyHistoryData.notes == ''"></p>
+          <p *ngIf="familyHistoryData.notes !== ''">{{familyHistoryData.notes}}</p>
+        </div>
+      </ion-item>
+
+      <div class="note-rgn" *ngIf="selecting.notes">
+        <textarea name="name" rows="4" placeholder="–" [(ngModel)]="note_template"></textarea>
+        <div class="note-buttons">
+          <button ion-button outline small color="light" (click)="noteCancel()">Cancel</button>
+          <button ion-button outline small color="light" (click)="noteSave()">OK</button>
+        </div>
+      </div>
+
+      <ion-item *ngIf="save">
+        <ion-label color="primary">Medical Condition</ion-label>
+        <ion-input placeholder="–" [(ngModel)]="fhConName"></ion-input>
+      </ion-item>
+
+      <div *ngIf="edit" class="condition">
+        <ion-item-sliding *ngFor="let item of fhConditionData; let i = index;">
+
+          <ion-item>
+            <ion-label color="primary">Medical Condition {{i+1}}</ion-label>
+            <ion-input placeholder="–" [(ngModel)]="item.name" [readonly]="isReadonly()"></ion-input>
+          </ion-item>
+
+          <ion-item-options side="right" class="slide_option">
+            <button ion-button color="danger" class="edit" (click)="updateCondition(item)">Edit</button>
+            <button ion-button color="danger" class="delete" (click)="deleteCondition(item.id)">Delete</button>
+          </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item *ngIf="addInputBox">
+          <ion-label color="primary">Medical Condition</ion-label>
+          <ion-input placeholder="–" [(ngModel)]="fhConName"></ion-input>
+        </ion-item>
+
+        <button ion-button full class="slide_btn" (click)="addInput()" *ngIf="!addInputBox">
+          + Add Medical Condition
+        </button>
+
+        <button ion-button full class="slide_btn" *ngIf="addInputBox" (click)="saveFHConData(familyHistoryData.id)">
+          Save
+        </button>
+      </div>
+
+    </ion-list>
+
+    <!-- Attach File List -->
+    <ion-list class="attach_list">
+
+      <ion-item-sliding *ngFor="let item of familyHistoryData.attach_file_urls; let i = index;" (click)="onClickItem(item.file_url)">
+
+        <ion-item>
+          <ion-icon name="ios-images-outline" item-start></ion-icon>
+          <p class="file_name">{{item.file_name}}</p>
+          <ion-icon name="ios-arrow-dropright-outline" item-end></ion-icon>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteItem(i)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)" />
+
+    <label for="file" ion-item class="attach">
+      <ion-icon name="attach"></ion-icon>
+      <span>Attach Document</span>
+    </label>
+
+
+    <ion-list class="public">
+      <ion-item>
+        <ion-label>Visible on public profile?</ion-label>
+        <ion-toggle [(ngModel)]="familyHistoryData.visible"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+  <button *ngIf="!save" ion-button color="light" outline full large style="color: red; background-color: white" (click)="deleteAlert()">Delete Family History</button>
+
+</ion-content>

@@ -1,0 +1,38 @@
+<div class="nav-bar">
+  <div class="dd">
+    <img src="assets/icon/white/inbox.png" alt="">
+    <span>Inbox</span>
+  </div>
+  <div class="feature">
+    <button ion-button clear style="left: 0;">Edit</button>
+    <button ion-button icon-only clear style="right: 0"><ion-icon name="search"></ion-icon></button>
+  </div>
+</div>
+
+<ion-content class="content-box">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content refreshingText="Refreshing...">
+      </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+
+    <ion-item (click)="goInboxDetailsPage()">
+      <ion-icon name="leaf" item-start class="show blue"></ion-icon>
+      <p class="box-title">Type 1 Diabetes Cure!<span class="ad">Ad</span></p>
+      <p>Yesterday</p>
+      <p>Multi-line lists are identical to regular lists, except items have multiple lines of text.</p>
+      <ion-icon name="ios-arrow-forward-outline" item-end color="primary"></ion-icon>
+    </ion-item>
+
+    <!-- <ion-item *ngFor="let item of items">
+      <ion-icon [ngClass]="{'blue' : item.show, 'white':!item.show  }" name="leaf" item-start class="show"></ion-icon>
+      <p class="box-title">{{item.title}}<span class="ad">Ad</span></p>
+      <p>{{item.date}}</p>
+      <p>{{item.description}}</p>
+      <ion-icon name="ios-arrow-forward-outline" item-end color="primary"></ion-icon>
+    </ion-item> -->
+
+  </ion-list>
+</ion-content>

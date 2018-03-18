@@ -1,0 +1,305 @@
+
+
+
+@font-face {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/css/Helvetica.woff') format('woff'), url('../assets/css/Helvetica.ttf') format('truetype');
+}
+
+* {
+  font-family: 'Helvetica';
+}
+
+$font-color: #515355;
+$gray-font: #989CA0;
+$green-color: #15CE87;
+$red-color: #FF3B30;
+$start-green: #1BCB73;
+$end-green: #1CD89D;
+$start-blue: #008ECF;
+$end-blue: #009FCF;
+$bg-clr: #eff2f4;
+
+
+.bg-clr{
+    background-color: #009fcb;
+}
+h1, h2, h3, h4, h5, h6, p{
+  color: #515355;
+}
+
+.tab-button[aria-selected=true] .tab-button-icon{
+  color: $start-blue !important;
+}
+
+
+.item-block:first-child{
+  border-top: none !important;
+}
+// .title-img .action-sheet-destructive{ // if you want the image on the left of the title
+//   background:url('../assets/icon/gray/eye.png') no-repeat;
+//   height: 50px;
+//   width: 50px;
+// }
+// .action-sheet-ios .action-sheet-button{
+//   color: #585858;
+// }
+.action-sheet-ios .action-sheet-destructive{
+  color: #f53d3d;
+}
+.has-icon .tab-badge {
+    right: calc(50% - 8px);
+}
+.tab-badge {
+    right: 4%;
+    top: 6%;
+    padding: 0px 5px;
+    position: absolute;
+    height: auto;
+    font-size: 10px;
+    line-height: 16px;
+    background-color: #ff3b30;
+}
+.tab-button-icon{
+  font-size: 32px;
+  height: 35px;
+}
+#tab-t0-3, #tab-t1-3 {
+  .tab-button-icon{
+    font-size: 38px;
+    height: 34px;
+  }
+}
+
+.tabs-md {
+  .tab-button-icon {
+    margin-top: 2px;
+    font-size: 3.1rem;
+  }
+  #tab-t0-3, #tab-t1-3 {
+    .tab-button-icon{
+      font-size: 3.6rem;
+      height: 38px;
+    }
+  }
+}
+
+.tabs-ios .tab-button-icon {
+  margin-top: 0;
+}
+
+
+.ion-alpha-sidebar{
+  top: 270px !important;
+  width: 30px;
+  padding-left: 10px;
+}
+.title-img{
+   .action-sheet-title {
+     // if you want the image on the left of the title
+  // background:url('path-to-image-here') no-repeat;
+    height: 50px;
+    border: none;
+    font-size: 17px;
+    color: #353535;
+    line-height: 0px;
+    background-color: #eff2f4;
+  }
+  .action-sheet-sub-title{
+    border-bottom: 1px solid gray;
+    margin-top: -21px;
+    padding-bottom: 4px
+
+  }
+}
+.alert-position{
+ padding-top: 35vh !important;
+}
+
+ion-passcode.blue .ion-passcode-container {
+  background: linear-gradient(to bottom right, #347eff 0%, #1ea3ff 85%) !important;
+}
+
+
+ion-passcode.passcode-example {
+  img.logo {
+    width: 100px;
+  }
+  p{
+    color: #fff;
+  }
+  .passcode-indicator {
+    margin-top: 1.5rem !important;
+  }
+}
+.transparent-header {
+  .toolbar {
+    .toolbar-background {
+      background: transparent;
+    }
+  }
+}
+.no-margin-top .scroll-content {
+  margin-top: 0 !important;
+}
+
+
+ion-item-divider p {
+  overflow: initial !important;
+  text-overflow: initial !important;
+  white-space: initial !important;
+}
+.popover-content {
+  width: 100% !important;
+      margin: auto 2px;
+}
+.custom-blue{
+  color: $start-blue !important;
+}
+.custom-red{
+  color: #ff3b30 !important;
+}
+.custom-cancel{
+  color: $start-blue !important;
+  font-weight: 400 !important;
+}
+input::-webkit-input-placeholder {
+    font-size: 18px;
+
+}
+.alert-ios .alert-input{
+  height: 30px;
+}
+
+ion-card.data-list {
+  ion-col.data-des {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.toolbar{
+  height: 150px;
+  .toolbar-background{
+    background: $start-blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($start-blue, $end-blue);
+  }
+  .toolbar-content{
+    .title{
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      padding-top: 0px !important;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      .toolbar-title{
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+    }
+    button{
+      position: absolute;
+      color: white;
+      padding: 5px;
+      top: 0;
+      font-size: 18px;
+      .icon{
+        font-size: 30px;
+        margin-right: 5px;
+      }
+    }
+    .circle-add-btn {
+      width: 70px;
+      height: 70px;
+      background-color: #2ea5d2;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      color: white;
+      padding: 0px;
+      font-size: 30px;
+      .icon{
+        margin-right: 0px;
+      }
+    }
+    .left-btn {
+      left: 10px;
+    }
+    .right-btn {
+      right: 10px;
+    }
+    .logo {
+      width: 25vw;
+    }
+
+    .header-title{
+      margin-top: 30px;
+      img{
+        width: 13vw;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .profile_img{
+        width: 100px;
+        float: left;
+        margin-left: 0px;
+        margin-top: 30px;
+        img{
+          width: 60%;
+          border-radius: 50%;
+          border: 3px solid #ffffff;
+          margin: 0 auto;
+          display: block;
+        }
+        .name{
+          font-size: 15px;
+          margin: 5px;
+          text-align: center;
+          color: #fff;
+        }
+      }
+
+      .view_title{
+        width: 180px;
+        float: left;
+        font-size: 25px;
+        color: #f0f5f7;
+        margin-top: 29px;
+        padding-left: 0px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &.toolbar1, &.toolbar2 {
+    height: 120px;
+  }
+}
+
+.toolbar2{
+  .toolbar-background{
+    background: $start-green; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($start-green, $end-green); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($start-green, $end-green); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($start-green, $end-green); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($start-green, $end-green); /* Standard syntax (must be last) */
+  }
+}
+
+.tabs-ios[tabsLayout=title-hide] .tab-button, .tabs-ios .tab-button.icon-only {
+  min-height: 50px;
+}
+
+.hidden {
+  display: none;
+}

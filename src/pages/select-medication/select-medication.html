@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Select Medication
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let person of persons;">
+      <div class="divider">
+        <img src="{{person.person.image_url.thumb}}" alt="">
+        <span>{{person.first_name}} {{person.last_name}}</span>
+      </div>
+      <ion-list class="medication-list">
+        <ion-item *ngFor="let reminder of person.reminders;" class="medication-item" (click)="newReminder(reminder.id)">
+          <ion-avatar item-start>
+            <!-- <img src="assets/{{reminder.form.file}}" alt=""> -->
+            <div class="tablet-preview">
+              <div class="m-icon m-icon-pill" *ngIf="reminder.form.name == 'Pill'">
+                <div class="icon-left"
+                [ngStyle]="{'-webkit-mask-image': 'url(assets/' + reminder.form.file + ')', 'background-color': reminder.color1.color}"
+                ></div>
+                <div class="icon-right"
+                [ngStyle]="{'-webkit-mask-image': 'url(assets/' + reminder.form.file + ')', 'background-color': reminder.color2.color}"
+                ></div>
+              </div>
+              <div class="m-icon" *ngIf="reminder.form.name !== 'Pill'">
+                <div class="m-icon-normal"
+                [ngStyle]="{'-webkit-mask-box-image': 'url(assets/' + reminder.form.file + ')', 'background-color': reminder.color1.color}"
+                ></div>
+              </div>
+            </div>
+          </ion-avatar>
+          <h2>{{reminder.name}}</h2>
+          <div item-end>
+            <ion-icon name="arrow-forward"></ion-icon>
+          </div>
+        </ion-item>
+        <!-- <ion-item class="medication-item-add" (click)="addMedication(person.id)">
+          <div class="icon" item-start>
+            <ion-icon name="md-add"></ion-icon>
+          </div>
+          <h2>Add New Medication</h2>
+          <div item-end>
+            <ion-icon name="arrow-forward"></ion-icon>
+          </div>
+        </ion-item> -->
+        <ion-item class="medication-item-add" *ngIf="!person.reminders.length">
+          <div class="icon" item-start>
+            <ion-icon name="ios-warning-outline"></ion-icon>
+          </div>
+          <h2>No Medications</h2>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,21 @@
+page-physicians {
+  .data-list{
+    position: relative;
+    box-shadow: none;
+    border: 1px solid #989CA0;
+    border-radius: 5px;
+    .item-block{
+      background-color: #F1F5F7;
+    }
+  }
+  .data-des{
+    font-size: 20px;
+    color: $font-color;
+  }
+  .sheet-btn{
+    font-size: 20px !important;
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+}

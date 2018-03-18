@@ -1,0 +1,177 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="closePage()">Cancel</button>
+    <ion-title class="title">
+      <img src="assets/image/main_logo.png" alt="" class="logo">
+    </ion-title>
+    <button ion-button clear item-end  [disabled]="!persnolInfoForm.valid"  class="create right-btn" (click)="personalDataUpdate()">
+      <ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+      <div class="profile_img">
+        <img [src]="imagePath" alt="" onError="this.src='assets/image/default.png';">
+      </div>
+      <p class="view_title">Personal Information</p>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-clr" (ionScroll)="scrollHandler($event)">
+
+  <!-- <div class="profile-nav">
+    <div class="header_bar">
+      <button ion-button clear item-end left class="cancel" (click)="closePage()">Cancel</button>
+      <ion-title class="title">
+        <img src="assets/image/main_logo.png" alt="" class="logo">
+      </ion-title>
+      <button ion-button clear item-end class="save" (click)="personalDataUpdate()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    </div>
+    <div class="header-title">
+      <div class="profile_img">
+        <img [src]="imagePath"  alt="" onError="this.src='assets/image/default.png';">
+      </div>
+      <p class="view_title">Personal Information</p>
+    </div>
+  </div> -->
+
+  <div class="profile_section">
+    <form [formGroup]="persnolInfoForm">
+      <img [src]="imagePath" alt="" onError="this.src='assets/image/default.png';">
+      <button ion-button name="button" color="secondary" class="clange_photo" (click)="getPicture()">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+      <ion-list class="list_view">
+
+        <ion-item>
+          <ion-label>First Name
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="person.first_name" formControlName="first_name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Middle Name</ion-label>
+          <ion-input type="text" [(ngModel)]="person.middle_name" formControlName="middle_name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Last Name
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="person.last_name" formControlName="last_name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Phone Number</ion-label>
+          <ion-input type="tel" [(ngModel)]="person.phone_number" formControlName="phone_number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Birthdate
+            <sup>*</sup>
+          </ion-label>
+          <ion-datetime class="multi-picker" displayFormat="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" formControlName="birth_date" [(ngModel)]="person.birth_date"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Gender
+            <sup>*</sup>
+          </ion-label>
+          <ion-select [(ngModel)]="person.gender" class="edit-select" formControlName="gender">
+            <ion-option *ngFor="let gender of genders" [value]="gender.value">{{gender.title}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Hair</ion-label>
+          <ion-select [(ngModel)]="person.hair" class="edit-select" formControlName="hair">
+            <ion-option *ngFor="let hair of hairs" [value]="hair.value">{{hair.color}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Eye Color</ion-label>
+          <ion-select [(ngModel)]="person.eye_color" class="edit-select" formControlName="eye_color">
+            <ion-option *ngFor="let eye of eyes" [value]="eye.value">{{eye.color}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Height</ion-label>
+          <ion-input type="number" [(ngModel)]="person.height" formControlName="height"></ion-input>
+        </ion-item>
+
+        <!-- <ion-item>
+            <ion-label>Height</ion-label>
+            <ion-multi-picker class="multi-picker" [(ngModel)]="height" (ionChange)="heightChange()" separator=" " item-content [multiPickerColumns]="heightColumns"></ion-multi-picker>
+        </ion-item> -->
+
+        <ion-item>
+          <!-- <ion-label>Weight <span>(Lbs)</span></ion-label> -->
+          <ion-label>Weight <span>(KG)</span></ion-label>
+          <ion-input type="number" [(ngModel)]="person.weight" formControlName="weight"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Blood Type</ion-label>
+          <ion-select [(ngModel)]="person.blood_type" class="edit-select" formControlName="blood_type">
+            <ion-option *ngFor="let blood of bloods" [value]="blood.value">{{blood.type}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Organ Donor</ion-label>
+          <ion-select [(ngModel)]="person.donor" class="edit-select" formControlName="donor">
+            <ion-option *ngFor="let donor of donors" [value]="donor.value">{{donor.title}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Address Line 1</ion-label>
+          <ion-input type="text" [(ngModel)]="address.line1" formControlName="line1"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Address Line 2</ion-label>
+          <ion-input type="text" [(ngModel)]="address.line2" formControlName="line2"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>City
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="address.city" formControlName="city"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>State/Province
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="address.state" formControlName="state"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Country
+            <sup>*</sup>
+          </ion-label>
+          <ion-select [(ngModel)]="address.country" formControlName="country" style="color: #515355;">
+            <ion-option value="" selected>Select</ion-option>
+            <ion-option *ngFor="let item of countries" [value]="item.code">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Zip</ion-label>
+          <ion-input type="text" [(ngModel)]="address.zip" formControlName="zip"></ion-input>
+        </ion-item>
+
+      </ion-list>
+    </form>
+  </div>
+
+
+
+  <!-- *ngIf="scrollTop" -->
+
+</ion-content>
+<button *ngIf="scrollTop > 0" ion-button icon-only class="save-btn" (click)="personalDataUpdate()">
+  <ion-icon name="md-checkmark"></ion-icon>
+</button>

@@ -1,0 +1,13 @@
+<ion-header class="transparent-header" no-border>
+
+  <ion-navbar color="dark">
+    <button *ngIf="checkValue" ion-button icon-only clear style="color: #fff;" (click)="closemodal()" left>
+      <ion-icon name="md-arrow-back"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="no-margin-top" no-bounce>
+  <ion-passcode [options]="passcodeOptions" class="passcode-example" *ngIf="isLoading"></ion-passcode>
+</ion-content>

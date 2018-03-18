@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+    <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+    <ion-title *ngIf="save" class="title">New Lab</ion-title>
+    <ion-title *ngIf="!save" class="title">Lab</ion-title>
+    <button *ngIf="save" ion-button clear item-end class="create right-btn" [disabled]="!labsForm.valid"  (click)="createLabsData()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <button *ngIf="!save" ion-button clear item-end class="create right-btn" [disabled]="!labsForm.valid"  (click)="updateLabsData()"><ion-icon name="md-checkmark"></ion-icon>Save</button>
+    <div class="header-title">
+        <img src="assets/icon/white/test-tube.png" alt="">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="portfolio">
+    <form [formGroup]="labsForm">
+    <ion-list class="data">
+      <!-- <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-select [(ngModel)]="labsData.name" style="color: #515355;">
+          <ion-option value="" selected>Select</ion-option>
+          <ion-option *ngFor="let item of type" [value]="item.name">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label>Name<sup>*</sup></ion-label>
+        <ion-input type="text" placeholder="–" [(ngModel)]="labsData.name" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date<sup>*</sup></ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" formControlName="lab_date" min="2001-01-01" max="2050-12-31" [(ngModel)]="labsData.lab_date"  style="color: #515355;"></ion-datetime>
+      </ion-item>
+
+      <ion-item (click)="enterNote()">
+        <div style="color: #515355;" item-start>Result<sup>*</sup></div>
+        <div class="option-val" item-end>
+          <p class="p1" *ngIf="labsData.result == ''"></p>
+          <p class="p2" *ngIf="labsData.result !== ''" >{{labsData.result}}</p>
+        </div>
+      </ion-item>
+
+      <div class="note-rgn" [ngClass]="selecting.result ? '' : 'hidden' ">
+        <textarea name="name" rows="4" placeholder="–" formControlName="note_template" [(ngModel)]="note_template"></textarea>
+        <div class="note-buttons">
+          <button ion-button outline small color="light" (click)="noteCancel()">Cancel</button>
+          <button ion-button outline small color="light" (click)="noteSave()">OK</button>
+        </div>
+      </div>
+
+    </ion-list>
+
+    <!-- Attach File List -->
+    <ion-list class="attach_list">
+
+      <ion-item-sliding *ngFor="let item of labsData.attach_file_urls; let i = index;" (click)="onClickItem(item.file_url)">
+
+        <ion-item>
+            <ion-icon name="ios-images-outline" item-start></ion-icon>
+            <p class="file_name">{{item.file_name}}</p>
+            <ion-icon name="ios-arrow-dropright-outline" item-end></ion-icon>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteItem(i)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
+
+    <label for="file" ion-item class="attach">
+
+      <ion-icon name="attach"></ion-icon>
+      <span>Attach Document</span>
+
+    </label>
+
+    <ion-list class="public">
+
+      <ion-item>
+        <ion-label>Visible on public profile?</ion-label>
+        <ion-toggle [(ngModel)]="labsData.visible" formControlName="is_private"></ion-toggle>
+      </ion-item>
+
+    </ion-list>
+</form>
+
+    <button *ngIf="!save" ion-button class="delete" outline full large (click)="deleteAlert()">Delete Lab</button>
+
+</ion-content>

@@ -1,0 +1,43 @@
+page-main {
+  .bg_img{
+    background-image: url('../assets/image/social_bg.png');
+    background-size: 100vw 100vh;
+  }
+  .logo{
+    top: 14vh;
+    position: relative;
+    img{
+      width: 19vw;
+      display: block;
+      margin: 0 auto;
+    }
+
+    p{
+      text-align: center;
+      margin-top: 3vh;
+      font-size: 30px;
+      color: #fff;
+      font-weight: 300;
+    }
+  }
+  .sign{
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 32px);
+    .signup{
+      background: #fff;
+      color: $start-blue;
+      border-radius: 3px;
+      margin-bottom: 15px;
+      height: 10vh;
+      max-height: 70px;
+    }
+    .login{
+      border: 1px solid white;
+      color: white;
+      border-radius: 3px;
+      height: 10vh;
+      max-height: 70px;
+    }
+  }
+}

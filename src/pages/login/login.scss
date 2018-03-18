@@ -1,0 +1,55 @@
+page-login {
+
+  .toolbar{
+    height: 100px;
+    .toolbar-background{
+      background: $start-blue; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($start-blue, $end-blue); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient($start-blue, $end-blue); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient($start-blue, $end-blue); /* For Firefox 3.6 to 15 */
+      background: linear-gradient($start-blue, $end-blue);
+    }
+    .back_btn{
+      color: #fff;
+      margin-top: 20px;
+      padding-left: 20px;
+      font-size: 20px;
+      .icon{
+        font-size: 30px;
+      }
+    }
+    .title{
+      padding:20px;
+      // margin-top: 20px;
+      color: #515355;
+      min-height: 100px !important;
+
+      .toolbar-title{
+        text-align: right;
+        color: #f0f5f7;
+        font-size: 35px;
+        font-weight: 500;
+        width: 230px;
+        right: 20px;
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+  }
+  .title{
+    font-size: 17px !important;
+    color: #515355;
+  }
+  .mail{
+    font-size: 23px;
+    color: #515355;
+  }
+  .login{
+    background-color: #15ce87;
+    border-radius: 5px;
+  }
+  .forgot_btn{
+    float: right;
+    color: #515355;
+  }
+}

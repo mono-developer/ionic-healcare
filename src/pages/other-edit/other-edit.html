@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar hideBackButton="true" [ngClass]="{'toolbar1':edit, 'toolbar2': save}">
+      <button ion-button clear item-end class="back_btn left-btn" left (click)="dismiss()">Cancel</button>
+      <ion-title *ngIf="save" class="title">New Other Information</ion-title>
+      <ion-title *ngIf="!save" class="title">Other Information</ion-title>
+      <button *ngIf="save" [disabled]="!otherInfoForm.valid" ion-button clear item-end class="create right-btn" (click)="createOtherInfoData()">
+        <ion-icon name="md-checkmark"></ion-icon>Save</button>
+      <button *ngIf="!save" [disabled]="!otherInfoForm.valid" ion-button clear item-end class="create right-btn" (click)="updateOtherInfoData()">
+        <ion-icon name="md-checkmark"></ion-icon>Save</button>
+      <div class="header-title">
+        <img src="assets/icon/white/info.png" alt="">
+      </div>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content class="portfolio">
+    <form [formGroup]="otherInfoForm">
+    <ion-list class="data">
+      <ion-item>
+        <ion-label>Name<sup>*</sup></ion-label>
+        <ion-input type="text" placeholder="–" formControlName="name" [(ngModel)]="otherInfoData.label"></ion-input>
+      </ion-item>
+
+      <ion-item (click)="enterNote()">
+        <div style="color: #515355;" item-start>Notes<sup style="color: red;font-weight: 900;">*</sup></div>
+        <div class="option-val" item-end>
+          <p *ngIf="otherInfoData.notes == ''"></p>
+          <p *ngIf="otherInfoData.notes !== ''">{{otherInfoData.notes}}</p>
+        </div>
+      </ion-item>
+
+      <div class="note-rgn" [ngClass]="selecting.notes ? '' : 'hidden'">
+        <textarea name="name" formControlName="note_template" rows="4" placeholder="–" [(ngModel)]="note_template"></textarea>
+        <div class="note-buttons">
+          <button ion-button outline small color="light" (click)="noteCancel()">Cancel</button>
+          <button ion-button outline small color="light" (click)="noteSave()">OK</button>
+        </div>
+      </div>
+
+    </ion-list>
+
+    <ion-list class="public">
+      <ion-item>
+        <ion-label>Visible on public profile?</ion-label>
+        <ion-toggle formControlName="is_private" [(ngModel)]="otherInfoData.visible"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+  </form>
+    <button *ngIf="!save" ion-button class="delete" outline full large (click)="deleteAlert()">Delete Other Information</button>
+  </ion-content>

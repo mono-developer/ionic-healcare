@@ -1,0 +1,103 @@
+page-home {
+
+  .logo{
+    width: 35vw;
+    margin: 0 auto;
+    display: block;
+    margin-top: 5vh;
+    margin-bottom: 20px;
+  }
+  .box{
+    width: 100%;
+    padding: 10px 20px;
+    height: auto;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    .icon{
+      width: 5px;
+      position: absolute;
+      right: 25px;
+      top: 25px;
+    }
+
+    button{
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+  }
+  h2{
+    color: #515355;
+    font-size: 28px;
+    margin-top: 10px;
+  }
+  p{
+    font-size: 17px;
+    color: #515355;
+    font-weight: 500;
+  }
+  .timing{
+    padding-left: 0;
+    .title{
+      .row1{
+        font-size: 15px;
+        color: gray;
+      }
+    }
+    .des{
+      .row2{
+        font-size: 23px;
+        font-weight: 200;
+        color: #1a1a1a;
+      }
+
+    }
+
+  }
+  .com{
+    position: relative;
+    width: 50%;
+    display: inline-block;
+    float: left;
+    .notification{
+      position: absolute;
+      top: 0px;
+      right: 8vw;
+      img{
+        width: 25px;
+        height: 25px;
+      }
+      p{
+        position: absolute;
+        top: -16px;
+        right: 7px;
+        font-size: 18px;
+        color: white;
+      }
+    }
+    img{
+      display: block;
+      width: 100px;
+      margin: 0 auto;
+    }
+    .middle-name{
+      position: absolute;
+      top: 5px;
+      left: 15vw;
+      color: #fff;
+      font-weight: 100;
+      font-size: 30px;
+      }
+    p{
+      text-align: center;
+    }
+  }
+  .section{
+    width: calc(100vw - 32px);
+    border-top: 1px solid #989ca0;
+    margin-left: -16px;
+  }
+
+
+}

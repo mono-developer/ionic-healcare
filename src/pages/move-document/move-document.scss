@@ -1,0 +1,60 @@
+page-move-document {
+
+  .toolbar-background{
+    background-color: #009fcb;
+  }
+  .back-button{
+    color: #fff;
+  }
+  .cancel{
+    width: 80px;
+    right: 0;
+    position: absolute;
+    top: 0;
+    height: 35px;
+    color: #fff;
+  }
+  .list-box{
+    height: calc(100% - 70px);
+    overflow: overlay
+  }
+  .item-div{
+    font-size: 20px;
+    margin: 5px auto;
+    white-space: nowrap;
+    width: 100%;
+    .item{
+      width: 95%;
+      border-bottom: 1px solid gray;
+      height: 46px;
+      padding-left: 10px;
+      margin-left: 5%;
+      .icon{
+        font-size: 30px;
+        margin: 2px 16px 0px 0;
+        color: #494949;
+      }
+      .end-icon{
+        right: 0;
+        position: absolute;
+        color: gray;
+      }
+    }
+
+  }
+  .feature-btn{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #e6e4e4;
+    border: 1px solid #009fcb;
+    button{
+      width: 40%;
+      display: inline-block;
+
+    }
+  }
+
+
+}

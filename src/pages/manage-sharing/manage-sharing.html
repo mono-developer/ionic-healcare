@@ -1,0 +1,117 @@
+<div class="nav-bar">
+  <div class="dd">
+    <img src="assets/icon/white/share-2.png" alt="">
+    <span>Sharing</span>
+  </div>
+  <div class="feature">
+    <button ion-button clear (click)="dismiss()"><ion-icon name="ios-arrow-back"></ion-icon>Back</button>
+  </div>
+</div>
+
+<ion-segment [(ngModel)]="share" color="primary" (ionChange)="segmentChanged($event)">
+
+  <ion-segment-button value="other">Shared with others</ion-segment-button>
+  <ion-segment-button value="me" >Shared with me</ion-segment-button>
+
+</ion-segment>
+
+<ion-content class="content-box">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content refreshingText="Refreshing...">
+      </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="document" *ngIf="this.share=='other'">
+    <ion-item class="others-item-div">
+       Shared Profiles
+   </ion-item>
+   <div *ngIf="others_profiles_count == 0 || others_profiles_count == undefined">
+       <ion-icon name="ios-close-circle-outline" class="close-icon"></ion-icon>
+       <div class="desc-div">No profiles are shared with you</div>
+   </div>
+
+   <div *ngIf="others_profiles_count > 0">
+
+     <ion-list style="margin-bottom: 0;">
+        <ion-item *ngFor="let profile of others_profiles" (click)="showOptionProfile($event, profile);">
+          <ion-avatar item-start>
+            <img [src]="profile.shareable.person.image_url.thumb" onError="this.src='/assets/image/default_avatar.png';">
+          </ion-avatar>
+          <h2>{{profile.shareable.person.first_name}} {{profile.shareable.person.last_name}}</h2>
+          <p>Shared with {{profile.shared_email[0]}}</p>
+          <ion-icon name="ios-arrow-dropdown-outline" item-right></ion-icon>
+        </ion-item>
+      </ion-list>
+
+   </div>
+
+   <ion-item class="others-item-div">
+       Shared Documents
+   </ion-item>
+
+   <div *ngIf = "others_documents_count == 0 || others_documents_count == undefined">
+       <ion-icon name="ios-close-circle-outline" class="close-icon"></ion-icon>
+       <div class="desc-div">No documents are shared with others</div>
+   </div>
+
+   <div *ngIf="others_documents_count > 0">
+
+      <ion-list>
+         <ion-item *ngFor="let document of others_documents" (click)="showOptionDocument($event, document);">
+            <ion-avatar item-start class="pro-img">
+              <img *ngIf="document.shareable_type == 'Folder'" src="assets/image/folder.png">
+              <img *ngIf="document.shareable.media_type == 'Document'" src="assets/image/doc.png">
+              <img *ngIf="document.shareable.media_type == 'image'" src="assets/image/jpg.png">
+            </ion-avatar>
+            <h2 *ngIf="document.shareable.name">{{document.shareable.name}}</h2>
+            <h2 *ngIf="document.shareable.file_name">{{document.shareable.file_name}}</h2>
+            <p>Shared with {{document.shared_email[0]}}</p>
+            <ion-icon name="ios-arrow-dropdown-outline" item-end></ion-icon>
+          </ion-item>
+      </ion-list>
+     <!-- </ion-card> -->
+   </div>
+  </div>
+  <div class="me-div" *ngIf="share=='me' && (me_count == 0 || me_count == undefined)">
+   <ion-icon name="ios-close-circle-outline" class="close-icon"></ion-icon>
+   <div class="desc-div">No profiles are shared with you</div>
+ </div>
+
+ <div class="me-div" *ngIf="share=='me' && me_count > 0">
+     <ion-card *ngFor="let profile of me_data" style="border-radius:6px;" (click)="gotoMeData($event, profile);">
+       <ion-item>
+
+         <ion-avatar item-left>
+           <img [src]="profile.shareable.person.image_url.thumb" style="width:13vw; height:13vw;" onError="this.src='/assets/image/default_avatar.png';"/>
+         </ion-avatar>
+         <h2 style="font-size:5vw;">{{profile.shareable.person.first_name}} {{profile.shareable.person.last_name}}</h2>
+         <div class="separator"></div>
+         <p *ngIf="profile.expired_at != undefined">Shared Expires {{profile.expired_at.substr(0, 10)}}</p>
+         <p *ngIf="profile.expired_at == undefined">Shared Never Expires</p>
+
+         <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon>
+       </ion-item>
+     </ion-card>
+ </div>
+
+ <div class="me-div" *ngIf="share=='me'">
+   <div class="search_bar">
+     <ion-searchbar (ionInput)="getItems($event)" class="customer"></ion-searchbar>
+     <button ion-button icon-only class="filter" [ngClass]="{'filter_off': filter_flag, 'filter_on': !filter_flag}" (click)="changeFlag()">
+       <ion-icon name="ios-pricetag-outline"></ion-icon>
+     </button>
+   </div>
+
+   <div class="filter_list" *ngIf="filter_flag">
+     <button ion-button outline [ngClass]="{'checkedClass': item.checked, 'discheckedClass': !item.checked}" (click)="onButtonClick(item)" *ngFor="let item of filter_list">{{item.title}}</button>
+   </div>
+   <ion-list>
+     <ion-item *ngFor="let item of items">
+       {{ item }}
+     </ion-item>
+   </ion-list>
+
+ </div>
+
+</ion-content>
